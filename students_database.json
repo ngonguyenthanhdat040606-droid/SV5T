@@ -1,0 +1,2326 @@
+{
+  "metadata": {
+    "school": "Trường Đại học Sài Gòn",
+    "program": "Sinh viên 5 tốt",
+    "academic_year": "2024-2025",
+    "import_date": "2026-04-12T05:05:53.248075",
+    "total_students": 223,
+    "achieved_students": 190,
+    "not_achieved_students": 33,
+    "data_status": "verified_and_approved"
+  },
+  "statistics": {
+    "total": 223,
+    "achieved": 190,
+    "not_achieved": 33,
+    "by_faculty": {
+      "GIÁO DỤC CHÍNH TRỊ": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "Không xác định": {
+        "total": 209,
+        "achieved": 178,
+        "not_achieved": 31
+      },
+      "LUẬT": {
+        "total": 1,
+        "achieved": 0,
+        "not_achieved": 1
+      },
+      "VĂN HOÁ VÀ DU LỊCH": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "SƯ PHẠM KHOA HỌC\nTỰ NHIÊN": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "KỸ THUẬT VÀ CÔNG NGHỆ": {
+        "total": 1,
+        "achieved": 0,
+        "not_achieved": 1
+      },
+      "GIÁO DỤC TIỂU HỌC": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "NGOẠI NGỮ": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "GIÁO DỤC\nMẦM NON": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "TOÁN - ỨNG DỤNG": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "TÀI CHÍNH -\nKẾ TOÁN": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "CÔNG NGHỆ \nTHÔNG TIN": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "GIÁO DỤC": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      },
+      "QUẢN TRỊ\nKINH DOANH": {
+        "total": 1,
+        "achieved": 1,
+        "not_achieved": 0
+      }
+    }
+  },
+  "students": [
+    {
+      "id": "3121200023",
+      "msv": "3121200023",
+      "name": "Hồ Anh Thư",
+      "faculty": "GIÁO DỤC CHÍNH TRỊ",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243772",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122200012",
+      "msv": "3122200012",
+      "name": "Trần Anh Thư",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243804",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122200003",
+      "msv": "3122200003",
+      "name": "Võ Cẩm Giang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243813",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122200009",
+      "msv": "3122200009",
+      "name": "Võ Thanh Quyền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243820",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121200013",
+      "msv": "3121200013",
+      "name": "Lê Thị Thùy Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243827",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122200005",
+      "msv": "3122200005",
+      "name": "Nguyễn Thị Phương Khiêm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243834",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430196",
+      "msv": "3123430196",
+      "name": "Bùi Cao Ái Trân",
+      "faculty": "LUẬT",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243844",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430222",
+      "msv": "3123430222",
+      "name": "Bùi Thanh Xuân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243851",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430228",
+      "msv": "3123430228",
+      "name": "Đỗ Lê Kim Yến",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243858",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122430104",
+      "msv": "3122430104",
+      "name": "Mai Nguyễn Trà My",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243864",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122430202",
+      "msv": "3122430202",
+      "name": "Nguyễn Đắc Triết",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243871",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430131",
+      "msv": "3123430131",
+      "name": "Nguyễn Hữu Thiện Nhiên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243878",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430178",
+      "msv": "3123430178",
+      "name": "Nguyễn Nữ Minh Thư",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243885",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124430141",
+      "msv": "3124430141",
+      "name": "Nguyễn Thanh Bảo Tâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243892",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430156",
+      "msv": "3123430156",
+      "name": "Nguyễn Thị Ngọc Tâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243898",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124430149",
+      "msv": "3124430149",
+      "name": "Nguyễn Văn Thành",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243903",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430088",
+      "msv": "3123430088",
+      "name": "Trần Ngọc Linh",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243909",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122430014",
+      "msv": "3122430014",
+      "name": "Trần Ngọc Minh Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243917",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124430177",
+      "msv": "3124430177",
+      "name": "Trần Nguyễn Thùy Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243923",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122430044",
+      "msv": "3122430044",
+      "name": "Trịnh Tú Hảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243929",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430163",
+      "msv": "3123430163",
+      "name": "Võ Thanh Thảo",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243936",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122430118",
+      "msv": "3122430118",
+      "name": "Nguyễn Trương Diễm Ngọc",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243943",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123430154",
+      "msv": "3123430154",
+      "name": "Nguyễn Tấn Tài",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243951",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121430166",
+      "msv": "3121430166",
+      "name": "Đào Trần Thanh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243961",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122350030",
+      "msv": "3122350030",
+      "name": "Đặng Thị Cúc",
+      "faculty": "VĂN HOÁ VÀ DU LỊCH",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243971",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123350177",
+      "msv": "3123350177",
+      "name": "Hà Thái Toàn",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243981",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122540036",
+      "msv": "3122540036",
+      "name": "Huỳnh Thị Xu Kiên",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243990",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122570045",
+      "msv": "3122570045",
+      "name": "Khưu Mỹ Hoàng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.243999",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122570149",
+      "msv": "3122570149",
+      "name": "Lê Hoàng Vinh",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244007",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122350184",
+      "msv": "3122350184",
+      "name": "Nguyễn Phạm Huy Phúc",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244014",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121540074",
+      "msv": "3121540074",
+      "name": "Nguyễn Thị Tuyết Ngân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244020",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123570037",
+      "msv": "3123570037",
+      "name": "Thông Thị Diệu Hiền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244027",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122570086",
+      "msv": "3122570086",
+      "name": "Trang Võ Thảo Nhi",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244033",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122540040",
+      "msv": "3122540040",
+      "name": "Trần Thị Ánh Lan",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244040",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123540014",
+      "msv": "3123540014",
+      "name": "Trần Thị Thùy Duyên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244046",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121540085",
+      "msv": "3121540085",
+      "name": "Nguyễn Thị Thiện Nhàn",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244053",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123570142",
+      "msv": "3123570142",
+      "name": "Trần Trung Trí",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244059",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020023",
+      "msv": "3123020023",
+      "name": "Hồ Đông Quân",
+      "faculty": "SƯ PHẠM KHOA HỌC\nTỰ NHIÊN",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244066",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020016",
+      "msv": "3123020016",
+      "name": "Nguyễn Công Minh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244072",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020013",
+      "msv": "3123020013",
+      "name": "Nguyễn Hoàng Khánh Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244077",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123060018",
+      "msv": "3123060018",
+      "name": "Nguyễn Thị Mỹ Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244083",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020002",
+      "msv": "3123020002",
+      "name": "Phạm Thái Hoài An",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244090",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122030009",
+      "msv": "3122030009",
+      "name": "Thái Thị Kim Ngân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244095",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020019",
+      "msv": "3123020019",
+      "name": "Trần Ngọc Tuyết Như",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244101",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020031",
+      "msv": "3123020031",
+      "name": "Trần Thanh Tiến",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244107",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121020023",
+      "msv": "3121020023",
+      "name": "Trần Thị Huỳnh Như",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244112",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123060021",
+      "msv": "3123060021",
+      "name": "Trương Ngọc Thảo My",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244127",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121060033",
+      "msv": "3121060033",
+      "name": "Trương Thùy Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244132",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123020035",
+      "msv": "3123020035",
+      "name": "Vũ Hà Kiều Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244138",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122060003",
+      "msv": "3122060003",
+      "name": "Lê Minh Khánh Duy",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244146",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123500003",
+      "msv": "3123500003",
+      "name": "Đinh Thị Lan Anh",
+      "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244154",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123340038",
+      "msv": "3123340038",
+      "name": "Nguyễn Đức Thắng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244160",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123340048",
+      "msv": "3123340048",
+      "name": "Ngô Thị Kim Tuyền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244219",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123340048",
+      "msv": "3123340048",
+      "name": "Ngô Thị Ngọc Tuyền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244227",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123340032",
+      "msv": "3123340032",
+      "name": "Nguyễn Thị Thảo Quỳnh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244233",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123340041",
+      "msv": "3123340041",
+      "name": "Trần Ngọc Minh Thư",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244239",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121340047",
+      "msv": "3121340047",
+      "name": "Lê Thái Bảo Ngọc",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244245",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121340033",
+      "msv": "3121340033",
+      "name": "Nguyễn Hoàng Phương Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244255",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150147",
+      "msv": "3121150147",
+      "name": "Tô Nguyễn Thảo Quyên",
+      "faculty": "GIÁO DỤC TIỂU HỌC",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244263",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150036",
+      "msv": "3121150036",
+      "name": "Võ Hoàng Duy",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244270",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150004",
+      "msv": "3121150004",
+      "name": "Trần Bùi Thảo My",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244276",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150011",
+      "msv": "3122150011",
+      "name": "Phan Thị Hồng Ánh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244281",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150033",
+      "msv": "3122150033",
+      "name": "Vương Huỳnh Bảo Hân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244288",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150042",
+      "msv": "3122150042",
+      "name": "Nguyễn Phan Thảo Huyên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244294",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150070",
+      "msv": "3122150070",
+      "name": "Bùi Thanh Ngân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244302",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150143",
+      "msv": "3122150143",
+      "name": "Nguyễn Trọng Tín",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244309",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150146",
+      "msv": "3122150146",
+      "name": "Lê Nguyễn Đoan Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244315",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150155",
+      "msv": "3122150155",
+      "name": "Nguyễn Thị Huyền Trân",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244321",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150158",
+      "msv": "3122150158",
+      "name": "Nguyễn Thị Tuyết Trinh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244326",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150161",
+      "msv": "3122150161",
+      "name": "Nguyễn Ngọc Kim Trúc",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244332",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150005",
+      "msv": "3122150005",
+      "name": "Nguyễn Ngọc Phương Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244337",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150055",
+      "msv": "3122150055",
+      "name": "Nguyễn Thị Thùy Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244343",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150061",
+      "msv": "3122150061",
+      "name": "Lê Văn Luận",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244349",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150122",
+      "msv": "3122150122",
+      "name": "Cao Ngọc Thanh Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244355",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150128",
+      "msv": "3122150128",
+      "name": "Bùi Nguyễn Phương Thùy",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244361",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150147",
+      "msv": "3122150147",
+      "name": "Lê Thị Huyền Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244367",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150162",
+      "msv": "3122150162",
+      "name": "Đinh Thị Cẩm Tú",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244372",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150169",
+      "msv": "3122150169",
+      "name": "Lê Quốc Vinh",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244380",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150044",
+      "msv": "3122150044",
+      "name": "Mai Thị Minh Huyền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244386",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150072",
+      "msv": "3122150072",
+      "name": "Đỗ Trần Kim Ngân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244391",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150092",
+      "msv": "3122150092",
+      "name": "Trịnh Nguyễn Ngọc Nhi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244404",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150096",
+      "msv": "3122150096",
+      "name": "Lâm Tâm Như",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244411",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150160",
+      "msv": "3122150160",
+      "name": "Nguyễn Thị Trình",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244417",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150170",
+      "msv": "3122150170",
+      "name": "Cao Trần Thảo Vy",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244423",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122150179",
+      "msv": "3122150179",
+      "name": "Nguyễn Thị Hải Yến",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244429",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150105",
+      "msv": "3123150105",
+      "name": "Nguyễn Hồng Nhạc",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244435",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150188",
+      "msv": "3123150188",
+      "name": "Đỗ Nguyễn Mai Uyên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244441",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150033",
+      "msv": "3123150033",
+      "name": "Hồ Thị Thúy Diểm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244447",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150061",
+      "msv": "3123150061",
+      "name": "Diệc Thiên Hương",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244452",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150067",
+      "msv": "3123150067",
+      "name": "Nguyễn Thị Trúc Lin",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244457",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150109",
+      "msv": "3123150109",
+      "name": "Lâm Tường Nhi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244463",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150116",
+      "msv": "3123150116",
+      "name": "Phạm Thị Nhi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244468",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150135",
+      "msv": "3123150135",
+      "name": "Võ Minh Quyền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244473",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150167",
+      "msv": "3123150167",
+      "name": "Đỗ Minh Thy",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244479",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150015",
+      "msv": "3123150015",
+      "name": "Trần Thị Lan Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244485",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150092",
+      "msv": "3123150092",
+      "name": "Võ Quang Mỹ",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244490",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123150146",
+      "msv": "3123150146",
+      "name": "Trần Thanh Tâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244496",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124150172",
+      "msv": "3124150172",
+      "name": "Lê Mỹ Uyên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244502",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124150002",
+      "msv": "3124150002",
+      "name": "Nguyễn Trần Thu An",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244507",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124150081",
+      "msv": "3124150081",
+      "name": "Nguyễn Thị Ái Na",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244513",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124150119",
+      "msv": "3124150119",
+      "name": "Mai Hồng Phượng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244518",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124150137",
+      "msv": "3124150137",
+      "name": "Nguyễn Thị Kiều Thơ",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244524",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124150143",
+      "msv": "3124150143",
+      "name": "Nguyễn Ngọc Anh Thư",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244529",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150223",
+      "msv": "3121150223",
+      "name": "Trần Thị Hải Yến",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244537",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150196",
+      "msv": "3121150196",
+      "name": "Hồ Linh Trung",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244542",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150106",
+      "msv": "3121150106",
+      "name": "Tạ Hạnh Kim Ngân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244548",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121150219",
+      "msv": "3121150219",
+      "name": "Thiều Ngọc Hoàng Vy",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244554",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124130015",
+      "msv": "3124130015",
+      "name": "Khiếu Thị Thùy Dương",
+      "faculty": "NGOẠI NGỮ",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244564",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123380133",
+      "msv": "3123380133",
+      "name": "Lâm Đình Quốc Khánh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244572",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124130045",
+      "msv": "3124130045",
+      "name": "Lưu Gia Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244580",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123130143",
+      "msv": "3123130143",
+      "name": "Nguyễn Anh Tuấn",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244589",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121130125",
+      "msv": "3121130125",
+      "name": "Nguyễn Công Thành",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244598",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123130104",
+      "msv": "3123130104",
+      "name": "Nguyễn Đỗ Minh Phương",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244607",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124130009",
+      "msv": "3124130009",
+      "name": "Nguyễn Gia Bảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244616",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123380226",
+      "msv": "3123380226",
+      "name": "Nguyễn Lê Quỳnh Như",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244624",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122380297",
+      "msv": "3122380297",
+      "name": "Nguyễn Thị Huyền Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244637",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123130056",
+      "msv": "3123130056",
+      "name": "Nguyễn Trung Kiên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244646",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122380306",
+      "msv": "3122380306",
+      "name": "Phạm Ngọc Bảo Trân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244654",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121130006",
+      "msv": "3121130006",
+      "name": "Phan Lê Yến Nhi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244662",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121380069",
+      "msv": "3121380069",
+      "name": "Trần Tấn Trí Đức",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244671",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122130044",
+      "msv": "3122130044",
+      "name": "Triệu Thị Hiền Tâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244679",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124130012",
+      "msv": "3124130012",
+      "name": "Trương Huyền Diệu",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244687",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123130140",
+      "msv": "3123130140",
+      "name": "Võ Hoàng Minh Triết",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244695",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123130108",
+      "msv": "3123130108",
+      "name": "Võ Mai Hải Phương",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244703",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123380117",
+      "msv": "3123380117",
+      "name": "Vũ Diệp Minh Huyền",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244711",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123380105",
+      "msv": "3123380105",
+      "name": "Vũ Huy Hoàng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244730",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123130052",
+      "msv": "3123130052",
+      "name": "Đặng Vỹ Khang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244739",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122190112",
+      "msv": "3122190112",
+      "name": "Cao Thị Cẩm Tú",
+      "faculty": "GIÁO DỤC\nMẦM NON",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244748",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124190142",
+      "msv": "3124190142",
+      "name": "Mã Tú Trân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244757",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122190105",
+      "msv": "3122190105",
+      "name": "Nghị Huỳnh Xuân Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244767",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123190077",
+      "msv": "3123190077",
+      "name": "Nguyễn Trương Kim Ngọc",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244775",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123190099",
+      "msv": "3123190099",
+      "name": "Trần Kim Phúc",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244783",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123190005",
+      "msv": "3123190005",
+      "name": "Võ Ngọc Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244791",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122190086",
+      "msv": "3122190086",
+      "name": "Phạm Thị Ngọc Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244799",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123010031",
+      "msv": "3123010031",
+      "name": "Dương Đức Phú",
+      "faculty": "TOÁN - ỨNG DỤNG",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244808",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123010004",
+      "msv": "3123010004",
+      "name": "Hà Bảo Dung",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244816",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123010033",
+      "msv": "3123010033",
+      "name": "Hàng Hải Quân",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244824",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124480032",
+      "msv": "3124480032",
+      "name": "Lương Phan Hữu Lễ",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244832",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124580016",
+      "msv": "3124580016",
+      "name": "Lưu Thị Ngọc Hiếu",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244841",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123480002",
+      "msv": "3123480002",
+      "name": "Mai Ngọc Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244849",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124580011",
+      "msv": "3124580011",
+      "name": "Ngô Nguyễn Thành Đạt",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244857",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121480061",
+      "msv": "3121480061",
+      "name": "Nguyễn Đức Sang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244865",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121010002",
+      "msv": "3121010002",
+      "name": "Nguyễn Huyền Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244873",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124480033",
+      "msv": "3124480033",
+      "name": "Nguyễn Huỳnh Thu Liên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244881",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124480061",
+      "msv": "3124480061",
+      "name": "Nguyễn Như Quỳnh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244888",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121480038",
+      "msv": "3121480038",
+      "name": "Phan Thị Huỳnh Mai",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244896",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122010005",
+      "msv": "3122010005",
+      "name": "Trần Ngọc Khánh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244904",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124480067",
+      "msv": "3124480067",
+      "name": "Trần Phương Thảo",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244914",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121480068",
+      "msv": "3121480068",
+      "name": "Võ Thị Minh Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244923",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123010003",
+      "msv": "3123010003",
+      "name": "Nguyễn Thanh Danh",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244929",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121010034",
+      "msv": "3121010034",
+      "name": "Lê Hải Phụng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244936",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121010002",
+      "msv": "3121010002",
+      "name": "Trương Hải Châu",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244942",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121010016",
+      "msv": "3121010016",
+      "name": "Nguyễn Minh Khang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244948",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121010036",
+      "msv": "3121010036",
+      "name": "Lê Công Phước",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244954",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320296",
+      "msv": "3121320296",
+      "name": "Dương Thị Nhung",
+      "faculty": "TÀI CHÍNH -\nKẾ TOÁN",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244960",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122320138",
+      "msv": "3122320138",
+      "name": "Đặng Thị Hương Lan",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244968",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420174",
+      "msv": "3122420174",
+      "name": "Đỗ Thảo Linh.",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244977",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420347",
+      "msv": "3122420347",
+      "name": "Hà Hồ Phương Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244986",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320360",
+      "msv": "3121320360",
+      "name": "Hoàng Ngọc Dạ Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.244995",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123320412",
+      "msv": "3123320412",
+      "name": "Huỳnh Ngọc Trâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245005",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420361",
+      "msv": "3122420361",
+      "name": "Huỳnh Thị Thắm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245011",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124320261",
+      "msv": "3124320261",
+      "name": "Khưu Mỹ Phụng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245017",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420300",
+      "msv": "3122420300",
+      "name": "Lê Phạm Mai Phương",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245023",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420013",
+      "msv": "3122420013",
+      "name": "Lê Quỳnh Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245029",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420317",
+      "msv": "3122420317",
+      "name": "Lê Thị Trúc Quyên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245036",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123420295",
+      "msv": "3123420295",
+      "name": "Nguyễn Hoàng Nhi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245045",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123320154",
+      "msv": "3123320154",
+      "name": "Nguyễn Thị Mỹ Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245054",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320307",
+      "msv": "3121320307",
+      "name": "Nguyễn Thị Ni",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245062",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420486",
+      "msv": "3122420486",
+      "name": "Nguyễn Thị Thúy Vy",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245071",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123420299",
+      "msv": "3123420299",
+      "name": "Nguyễn Thị Yến Nhi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245081",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122320038",
+      "msv": "3122320038",
+      "name": "Nguyễn Thùy Dung",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245091",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123320266",
+      "msv": "3123320266",
+      "name": "Phạm Thị Hồng Nhung",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245101",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320436",
+      "msv": "3121320436",
+      "name": "Phạm Thuỳ Trang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245107",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123320324",
+      "msv": "3123320324",
+      "name": "Phan Anh Thư",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245114",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420186",
+      "msv": "3122420186",
+      "name": "Thái Ngọc Thùy Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245119",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420345",
+      "msv": "3122420345",
+      "name": "Tống Giang Thanh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245125",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420079",
+      "msv": "3122420079",
+      "name": "Trần Thị Ánh Đăng",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245131",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122320069",
+      "msv": "3122320069",
+      "name": "Trần Thị Hải",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245137",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121420311",
+      "msv": "3121420311",
+      "name": "Võ Tấn Phát",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245142",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123420441",
+      "msv": "3123420441",
+      "name": "Võ Thị Anh Thư",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245149",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122420052",
+      "msv": "3122420052",
+      "name": "Võ Thị Hồng Diễm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245156",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320168",
+      "msv": "3121320168",
+      "name": "Đào Ngọc Linh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245161",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320196",
+      "msv": "3121320196",
+      "name": "Lý Thị Ngọc Mai",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245167",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320376",
+      "msv": "3121320376",
+      "name": "Nguyễn Ngọc Tâm Thi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245173",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121320353",
+      "msv": "3121320353",
+      "name": "Ngô Phương Thanh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245179",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122410001",
+      "msv": "3122410001",
+      "name": "Diệp Thụy An",
+      "faculty": "CÔNG NGHỆ \nTHÔNG TIN",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245186",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122411020",
+      "msv": "3122411020",
+      "name": "Đàm Thị Ngọc Châu",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245192",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122090011",
+      "msv": "3122090011",
+      "name": "Bùi Thị Hải Lâm",
+      "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245198",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123090002",
+      "msv": "3123090002",
+      "name": "Bùi Thiên Ân",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245204",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121160003",
+      "msv": "3121160003",
+      "name": "Lê Hoàng Phương Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245210",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122090004",
+      "msv": "3122090004",
+      "name": "Lê Xuân Diệu",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245216",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "31221220044",
+      "msv": "31221220044",
+      "name": "Nguyễn Thanh Vi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245221",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123090016",
+      "msv": "3123090016",
+      "name": "Nguyễn Thị Khánh Linh",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245227",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122390067",
+      "msv": "3122390067",
+      "name": "Nguyễn Thị Thương",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245233",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122390043",
+      "msv": "3122390043",
+      "name": "Nguyễn Trần Ánh Nhung",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245238",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123100002",
+      "msv": "3123100002",
+      "name": "Phạm Ngọc Bảo Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245244",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123090048",
+      "msv": "3123090048",
+      "name": "Quang Đặng Như Ý",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245249",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123090007",
+      "msv": "3123090007",
+      "name": "Tạ Yến Chi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245258",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121220037",
+      "msv": "3121220037",
+      "name": "Trần Duy Tôn",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245267",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122100001",
+      "msv": "3122100001",
+      "name": "Trần Lê Nhật Anh",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245275",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122090015",
+      "msv": "3122090015",
+      "name": "Trần Quốc Nam",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245284",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122090022",
+      "msv": "3122090022",
+      "name": "Võ Nguyên Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245293",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123100004",
+      "msv": "3123100004",
+      "name": "Võ Thị Kim Chi",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245302",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121100035",
+      "msv": "3121100035",
+      "name": "Trần Quang Vĩ",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245311",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123090025",
+      "msv": "3123090025",
+      "name": "Nguyễn Phạm Mẫn Nguyên",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245320",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121170017",
+      "msv": "3121170017",
+      "name": "Lê Tường Hương Thuỷ",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245329",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121100030",
+      "msv": "3121100030",
+      "name": "Đỗ Thị Hương Trâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245339",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3121090022",
+      "msv": "3121090022",
+      "name": "Huỳnh Tấn Khang",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245360",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123090039",
+      "msv": "3123090039",
+      "name": "Vũ Ngọc Tiến",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245369",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124530108",
+      "msv": "3124530108",
+      "name": "Đặng Quốc Việt",
+      "faculty": "GIÁO DỤC",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245377",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122530098",
+      "msv": "3122530098",
+      "name": "Nguyễn Ngọc Minh Tâm",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245383",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124460039",
+      "msv": "3124460039",
+      "name": "Nguyễn Thị Bảo Trâm",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245390",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123530099",
+      "msv": "3123530099",
+      "name": "Nguyễn Thị Thuỳ Trang",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245401",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123330380",
+      "msv": "3123330380",
+      "name": "Cao Hồng Thuý",
+      "faculty": "QUẢN TRỊ\nKINH DOANH",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245408",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124550080",
+      "msv": "3124550080",
+      "name": "Đoàn Thị Huỳnh Ngân",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245414",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123550193",
+      "msv": "3123550193",
+      "name": "Hồ Thị Như Ý",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245420",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123550192",
+      "msv": "3123550192",
+      "name": "Nguyễn Hồng Xuyến",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245426",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122330422",
+      "msv": "3122330422",
+      "name": "Nguyễn Huyền Bảo Trâm",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245432",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122330360",
+      "msv": "3122330360",
+      "name": "Nguyễn Ngọc Thanh Thảo",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245441",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3124550143",
+      "msv": "3124550143",
+      "name": "Nguyễn Nhật Thủy Tiên",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245450",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3122330281",
+      "msv": "3122330281",
+      "name": "Nguyễn Thị Nhung",
+      "faculty": "Không xác định",
+      "status": "not_achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245459",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123330144",
+      "msv": "3123330144",
+      "name": "Nguyễn Vũ Kha",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245469",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    },
+    {
+      "id": "3123550024",
+      "msv": "3123550024",
+      "name": "Sơn Thị Tuyết Duy",
+      "faculty": "Không xác định",
+      "status": "achieved",
+      "review_status": "approved",
+      "review_date": "2026-04-12T05:05:53.245481",
+      "reviewer": "Ban Hội Sinh viên - Trường ĐH Sài Gòn"
+    }
+  ]
+}

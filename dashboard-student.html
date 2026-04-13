@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sinh viên 5 tốt Digital</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+        
+        .gradient-secondary {
+            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+        }
+        
+        .sidebar {
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 3px;
+        }
+        
+        .tab-active {
+            @apply bg-cyan-600 text-white;
+        }
+        
+        .tab-inactive {
+            @apply text-slate-400 hover:text-slate-200;
+        }
+        
+        .card-hover {
+            @apply transition-all hover:shadow-lg hover:scale-105;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-slide {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .file-upload-zone {
+            @apply border-2 border-dashed border-slate-400 rounded-lg p-8 text-center transition hover:border-cyan-500 hover:bg-cyan-500/5 cursor-pointer;
+        }
+        
+        .file-upload-zone.dragover {
+            @apply border-cyan-500 bg-cyan-500/10;
+        }
+        
+        .progress-bar {
+            @apply h-2 bg-slate-700 rounded-full overflow-hidden;
+        }
+        
+        .progress-fill {
+            @apply h-full transition-all duration-500;
+        }
+        
+        .status-badge {
+            @apply px-3 py-1 rounded-full text-xs font-semibold;
+        }
+        
+        .status-success {
+            @apply bg-green-500/20 text-green-400;
+        }
+        
+        .status-warning {
+            @apply bg-yellow-500/20 text-yellow-400;
+        }
+        
+        .status-error {
+            @apply bg-red-500/20 text-red-400;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+
+    <!-- HEADER -->
+    <header class="h-20 bg-slate-800 border-b border-slate-700 flex items-center justify-between px-6 sticky top-0 z-40 shadow-lg">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-secondary rounded-lg flex items-center justify-center font-bold text-lg">5T</div>
+            <div>
+                <h1 class="font-bold text-lg">Sinh viên 5 tốt Digital</h1>
+                <p class="text-xs text-slate-400">Trường Đại học Sài Gòn</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <button class="relative p-2 text-slate-400 hover:text-white transition">
+                <i data-lucide="bell" class="w-5 h-5"></i>
+                <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+            <button class="relative p-2 text-slate-400 hover:text-white transition">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center gap-3 pl-4 border-l border-slate-700">
+                <div class="text-right text-sm">
+                    <p class="font-semibold" id="userName">Nguyễn Văn A</p>
+                    <p class="text-xs text-slate-400" id="userCode">3120410001</p>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=06B6D4&color=fff&size=40" alt="Avatar" class="w-10 h-10 rounded-full">
+                <button onclick="logout()" class="p-2 text-slate-400 hover:text-red-400 transition" title="Đăng xuất">
+                    <i data-lucide="log-out" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex h-[calc(100vh-80px)]">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-slate-800 border-r border-slate-700 sidebar p-4">
+            <div class="space-y-2">
+                <button onclick="switchTab('overview')" class="sidebar-btn tab-active w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    Tổng quan
+                </button>
+                
+                <button onclick="switchTab('criteria')" class="sidebar-btn tab-inactive w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition">
+                    <i data-lucide="checklist" class="w-5 h-5"></i>
+                    Tiêu chí 5 tốt
+                </button>
+                
+                <button onclick="switchTab('documents')" class="sidebar-btn tab-inactive w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    Hồ sơ minh chứng
+                </button>
+                
+                <button onclick="switchTab('suggestions')" class="sidebar-btn tab-inactive w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition">
+                    <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                    Gợi ý AI
+                </button>
+                
+                <button onclick="switchTab('progress')" class="sidebar-btn tab-inactive w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition">
+                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    Tiến độ
+                </button>
+            </div>
+
+            <hr class="border-slate-700 my-6">
+
+            <div class="bg-slate-700/50 rounded-lg p-4 mb-4">
+                <p class="text-xs text-slate-400 mb-2">
+                    <i data-lucide="info" class="w-4 h-4 inline"></i>
+                    Hạn chót nộp hồ sơ
+                </p>
+                <p class="font-bold text-cyan-400 text-lg">30 Ngày</p>
+                <p class="text-xs text-slate-500 mt-2">Còn lại: 2 tuần</p>
+            </div>
+
+            <button onclick="logout()" class="w-full py-2 px-4 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700 transition text-sm font-medium flex items-center justify-center gap-2">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                Đăng xuất
+            </button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 overflow-y-auto p-8">
+            
+            <!-- OVERVIEW TAB -->
+            <div id="tab-overview" class="animate-slide">
+                <!-- Progress Banner -->
+                <div class="bg-gradient-to-r from-blue-900/80 to-cyan-900/80 rounded-2xl p-8 mb-8 border border-cyan-500/20">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-2">Năm học 2025 - 2026</h2>
+                            <p class="text-cyan-200 text-lg">Bạn đã hoàn thành <span class="font-bold text-cyan-300" id="completedCriteria">2/5</span> tiêu chí Sinh viên 5 tốt</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-cyan-200 text-sm mb-2">Cấp trường</p>
+                            <div class="text-3xl font-bold text-cyan-300">40%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overall Progress Bar -->
+                    <div class="progress-bar">
+                        <div class="progress-fill bg-gradient-to-r from-cyan-400 to-cyan-600" style="width: 40%"></div>
+                    </div>
+                </div>
+
+                <!-- Criteria Cards Overview -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="layout-grid" class="text-cyan-500 w-6 h-6"></i>
+                        Tiến độ 5 Tiêu chí
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-5 gap-4">
+                        <!-- Đạo đức tốt -->
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 card-hover" onclick="switchTab('criteria')">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                                <i data-lucide="heart" class="text-white w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Đạo đức tốt</h4>
+                            <div class="space-y-3">
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-green-500" style="width: 100%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Tiến độ</span>
+                                    <span class="text-green-400 font-semibold">100%</span>
+                                </div>
+                                <span class="status-badge status-success">✓ Đạt</span>
+                            </div>
+                        </div>
+
+                        <!-- Học tập tốt -->
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 card-hover" onclick="switchTab('criteria')">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                                <i data-lucide="book-open" class="text-white w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Học tập tốt</h4>
+                            <div class="space-y-3">
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-blue-500" style="width: 80%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Tiến độ</span>
+                                    <span class="text-blue-400 font-semibold">80%</span>
+                                </div>
+                                <span class="status-badge status-warning">! Đang xét</span>
+                            </div>
+                        </div>
+
+                        <!-- Thể lực tốt -->
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 card-hover" onclick="switchTab('criteria')">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center mb-4">
+                                <i data-lucide="activity" class="text-white w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Thể lực tốt</h4>
+                            <div class="space-y-3">
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-orange-500" style="width: 40%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Tiến độ</span>
+                                    <span class="text-orange-400 font-semibold">40%</span>
+                                </div>
+                                <span class="status-badge status-error">✗ Chưa đạt</span>
+                            </div>
+                        </div>
+
+                        <!-- Tình nguyện tốt -->
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 card-hover" onclick="switchTab('criteria')">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                                <i data-lucide="hands-praying" class="text-white w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Tình nguyện tốt</h4>
+                            <div class="space-y-3">
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-purple-500" style="width: 100%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Tiến độ</span>
+                                    <span class="text-purple-400 font-semibold">100%</span>
+                                </div>
+                                <span class="status-badge status-success">✓ Đạt</span>
+                            </div>
+                        </div>
+
+                        <!-- Hội nhập tốt -->
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 card-hover" onclick="switchTab('criteria')">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
+                                <i data-lucide="globe" class="text-white w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Hội nhập tốt</h4>
+                            <div class="space-y-3">
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-cyan-500" style="width: 20%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Tiến độ</span>
+                                    <span class="text-cyan-400 font-semibold">20%</span>
+                                </div>
+                                <span class="status-badge status-error">✗ Chưa đạt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="history" class="text-cyan-500 w-5 h-5"></i>
+                            Hoạt động gần đây
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 pb-4 border-b border-slate-700">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-sm">Tải lên chứng chỉ Tiếng Anh B1</p>
+                                    <p class="text-xs text-slate-400">2 giờ trước</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 pb-4 border-b border-slate-700">
+                                <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-sm">Được xét duyệt tiêu chí "Đạo đức tốt"</p>
+                                    <p class="text-xs text-slate-400">1 ngày trước</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-sm">Bình luận từ Ban Hội về "Học tập tốt"</p>
+                                    <p class="text-xs text-slate-400">3 ngày trước</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="zap" class="text-yellow-500 w-5 h-5"></i>
+                            Ưu tiên xử lý
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
+                                <p class="font-semibold text-red-400 text-sm mb-1">🔴 Thể lực tốt - Chưa bắt đầu</p>
+                                <p class="text-xs text-slate-400">Cần tham gia ≥ 5 ngày hoạt động thể thao trong năm</p>
+                            </div>
+                            <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4">
+                                <p class="font-semibold text-yellow-400 text-sm mb-1">🟡 Hội nhập - Còn thiếu</p>
+                                <p class="text-xs text-slate-400">Cần chứng chỉ Tiếng Anh B1 hoặc tương đương</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRITERIA TAB -->
+            <div id="tab-criteria" class="hidden animate-slide">
+                <h2 class="text-3xl font-bold mb-6">Quản lý Tiêu chí 5 tốt</h2>
+                
+                <div class="space-y-6" id="criteriaList">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- DOCUMENTS TAB -->
+            <div id="tab-documents" class="hidden animate-slide">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold mb-4">Hồ sơ Minh chứng</h2>
+                    <p class="text-slate-400 mb-6">Quản lý và tải lên các tài liệu minh chứng cho từng tiêu chí</p>
+
+                    <div id="documentsList" class="space-y-6">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUGGESTIONS TAB -->
+            <div id="tab-suggestions" class="hidden animate-slide">
+                <h2 class="text-3xl font-bold mb-6">Gợi ý AI từ Hệ thống</h2>
+                <p class="text-slate-400 mb-6">Các hoạt động được đề xuất dựa trên tình trạng tiêu chí của bạn</p>
+
+                <div id="suggestionsList" class="space-y-4">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- PROGRESS TAB -->
+            <div id="tab-progress" class="hidden animate-slide">
+                <h2 class="text-3xl font-bold mb-6">Theo dõi Tiến độ</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-lg font-bold mb-6">Mục tiêu Cấp Trường</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold">Đạt danh hiệu cấp trường</span>
+                                    <span class="text-cyan-400">40%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-gradient-to-r from-cyan-400 to-cyan-600" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-lg font-bold mb-6">Mục tiêu Cấp Thành phố</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold">Đạt danh hiệu cấp thành</span>
+                                    <span class="text-cyan-400">20%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-gradient-to-r from-yellow-400 to-yellow-600" style="width: 20%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4">Timeline Hoạt động</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div class="pb-4 border-b border-slate-700">
+                                <p class="font-semibold">Tháng 9: Chuẩn bị & Đăng ký</p>
+                                <p class="text-xs text-slate-400">Chuẩn bị hồ sơ, sưu tập minh chứng</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div class="pb-4 border-b border-slate-700">
+                                <p class="font-semibold">Tháng 10: Thẩm định Trường</p>
+                                <p class="text-xs text-slate-400">Cán bộ Hội tiến hành thẩm định</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 bg-slate-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-semibold text-slate-500">Tháng 11: Thẩm định Thành phố</p>
+                                <p class="text-xs text-slate-400">Bộ phận thẩm định cấp Thành phó xem xét</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- UPLOAD MODAL -->
+    <div id="uploadModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-slate-800 rounded-2xl w-full max-w-lg border border-slate-700 overflow-hidden">
+            <div class="flex justify-between items-center p-6 border-b border-slate-700 bg-slate-700/50">
+                <h3 class="text-xl font-bold">Tải lên minh chứng</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Tiêu chí</label>
+                    <input type="text" id="modalCriteria" readonly class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 text-slate-300" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Tên minh chứng / Chứng chỉ</label>
+                    <input type="text" id="modalTitle" placeholder="Nhập tên minh chứng..." class="w-full px-4 py-3 rounded-xl bg-slate-700 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Mô tả chi tiết</label>
+                    <textarea id="modalDescription" placeholder="Mô tả ngắn gọn..." rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-700 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white resize-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-3">Tải lên tệp (PDF, PNG, JPG)</label>
+                    <div class="file-upload-zone" id="dropZone">
+                        <div class="text-slate-400">
+                            <i data-lucide="upload" class="w-8 h-8 mx-auto mb-2 text-cyan-500"></i>
+                            <p class="font-medium">Kéo thả file hoặc <span class="text-cyan-400">nhấp để tải lên</span></p>
+                            <p class="text-xs mt-1">Dung lượng tối đa 5MB</p>
+                        </div>
+                        <input type="file" id="fileInput" class="hidden" accept=".pdf,.png,.jpg,.jpeg" />
+                    </div>
+                    <div id="filePreview" class="mt-3"></div>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-700/50 border-t border-slate-700 flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg transition">
+                    Hủy bỏ
+                </button>
+                <button onclick="uploadDocument()" class="px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 rounded-lg transition shadow-lg shadow-cyan-500/20">
+                    Gửi xét duyệt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Initialize user data
+        function initializeUser() {
+            const userName = localStorage.getItem('userName') || 'Nguyễn Văn A';
+            const userCode = localStorage.getItem('userId') || '3120410001';
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('userCode').textContent = userCode;
+        }
+
+        // Criteria data
+        const criteria = [
+            {
+                id: 'morality',
+                name: 'Đạo đức tốt',
+                icon: 'heart',
+                color: 'green',
+                progress: 100,
+                status: 'completed',
+                requirements: [
+                    { title: 'Điểm rèn luyện ≥ 80/100', completed: true },
+                    { title: 'Không vi phạm quy chế', completed: true },
+                    { title: 'Tham gia ≥ 1 hoạt động tư tưởng', completed: true }
+                ]
+            },
+            {
+                id: 'study',
+                name: 'Học tập tốt',
+                icon: 'book-open',
+                color: 'blue',
+                progress: 80,
+                status: 'pending',
+                requirements: [
+                    { title: 'GPA ≥ 2.5/4.0', completed: true },
+                    { title: 'Không nợ môn học', completed: true },
+                    { title: 'Tham gia ≥ 1 cuộc thi học thuật', completed: false }
+                ]
+            },
+            {
+                id: 'fitness',
+                name: 'Thể lực tốt',
+                icon: 'activity',
+                color: 'orange',
+                progress: 40,
+                status: 'incomplete',
+                requirements: [
+                    { title: 'Tham gia ≥ 5 ngày hoạt động thể thao', completed: false },
+                    { title: 'Đạt danh hiệu "Thanh niên khỏe"', completed: false }
+                ]
+            },
+            {
+                id: 'volunteer',
+                name: 'Tình nguyện tốt',
+                icon: 'hands-praying',
+                color: 'purple',
+                progress: 100,
+                status: 'completed',
+                requirements: [
+                    { title: 'Tham gia ≥ 5 ngày tình nguyện/năm', completed: true },
+                    { title: 'Tham gia ≥ 1 chiến dịch', completed: true }
+                ]
+            },
+            {
+                id: 'integration',
+                name: 'Hội nhập tốt',
+                icon: 'globe',
+                color: 'cyan',
+                progress: 20,
+                status: 'incomplete',
+                requirements: [
+                    { title: 'Chứng chỉ Tiếng Anh B1 trở lên', completed: false },
+                    { title: 'Hoàn thành khóa tập huấn kỹ năng', completed: false }
+                ]
+            }
+        ];
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('main > div[id^="tab-"]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show selected tab
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+
+            // Update sidebar buttons
+            document.querySelectorAll('.sidebar-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('tab-inactive');
+            });
+            
+            event.target.closest('button').classList.add('tab-active');
+            event.target.closest('button').classList.remove('tab-inactive');
+
+            // Load tab content
+            if (tabName === 'criteria') {
+                loadCriteria();
+            } else if (tabName === 'documents') {
+                loadDocuments();
+            } else if (tabName === 'suggestions') {
+                loadSuggestions();
+            }
+        }
+
+        function loadCriteria() {
+            const container = document.getElementById('criteriaList');
+            container.innerHTML = '';
+
+            criteria.forEach(c => {
+                const colors = {
+                    'green': 'from-green-400 to-green-600',
+                    'blue': 'from-blue-400 to-blue-600',
+                    'orange': 'from-orange-400 to-orange-600',
+                    'purple': 'from-purple-400 to-purple-600',
+                    'cyan': 'from-cyan-400 to-cyan-600'
+                };
+
+                const statusText = {
+                    'completed': '✓ Đạt',
+                    'pending': '! Đang xét',
+                    'incomplete': '✗ Chưa đạt'
+                };
+
+                const statusBg = {
+                    'completed': 'status-success',
+                    'pending': 'status-warning',
+                    'incomplete': 'status-error'
+                };
+
+                const card = document.createElement('div');
+                card.className = 'bg-slate-800 rounded-2xl p-8 border border-slate-700 card-hover';
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-start gap-4 flex-1">
+                            <div class="w-16 h-16 bg-gradient-to-br ${colors[c.color]} rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="${c.icon}" class="text-white w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-2xl mb-2">${c.name}</h3>
+                                <span class="status-badge ${statusBg[c.status]}">${statusText[c.status]}</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold text-cyan-400">${c.progress}%</div>
+                            <p class="text-xs text-slate-400 mt-1">Hoàn thành</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar mb-6">
+                        <div class="progress-fill bg-gradient-to-r ${colors[c.color]}" style="width: ${c.progress}%"></div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3 flex items-center gap-2">
+                            <i data-lucide="checklist" class="w-4 h-4"></i>
+                            Yêu cầu chi tiết
+                        </h4>
+                        <div class="space-y-2">
+                            ${c.requirements.map(req => `
+                                <div class="flex items-center gap-3 text-sm ${req.completed ? 'text-green-400' : 'text-slate-400'}">
+                                    <i data-lucide="${req.completed ? 'check-circle' : 'circle'}" class="w-4 h-4"></i>
+                                    ${req.title}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('${c.name}')" class="w-full py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 transition">
+                        <i data-lucide="upload" class="w-4 h-4 inline mr-2"></i>
+                        Tải lên minh chứng
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        function loadDocuments() {
+            const container = document.getElementById('documentsList');
+            container.innerHTML = '';
+
+            criteria.forEach(c => {
+                const docs = document.createElement('div');
+                docs.className = 'bg-slate-800 rounded-xl p-6 border border-slate-700';
+                docs.innerHTML = `
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i data-lucide="folder" class="text-cyan-500 w-5 h-5"></i>
+                            ${c.name}
+                        </h3>
+                        <button onclick="openModal('${c.name}')" class="px-4 py-2 rounded-lg font-semibold text-sm text-white bg-cyan-600 hover:bg-cyan-700 transition">
+                            <i data-lucide="plus" class="w-4 h-4 inline mr-1"></i> Thêm
+                        </button>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-slate-700/50 rounded-lg p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3 flex-1">
+                                <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="file-pdf" class="text-red-400 w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Bảng điểm rèn luyện.pdf</p>
+                                    <p class="text-xs text-slate-400">1.2 MB • 2 ngày trước</p>
+                                </div>
+                            </div>
+                            <span class="status-badge status-success">✓ Đã duyệt</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(docs);
+            });
+
+            lucide.createIcons();
+        }
+
+        function loadSuggestions() {
+            const container = document.getElementById('suggestionsList');
+            container.innerHTML = '';
+
+            const suggestions = [
+                {
+                    title: 'SGU Run 2026 - Giải chạy bộ',
+                    description: 'Cộng 1 tiêu chí Thể lực tốt',
+                    date: 'Tháng 5 (15/05)',
+                    type: 'fitness',
+                    color: 'from-orange-500 to-orange-600'
+                },
+                {
+                    title: 'Hội thảo Tiếng Anh Chuyên ngành FIT',
+                    description: 'Cộng 1 chứng nhận Hội nhập',
+                    date: 'Tháng 5 (20/05)',
+                    type: 'integration',
+                    color: 'from-cyan-500 to-cyan-600'
+                },
+                {
+                    title: 'Khóa tập huấn Kỹ năng Giao tiếp',
+                    description: 'Hoàn thành yêu cầu Hội nhập',
+                    date: 'Tháng 6 (10/06)',
+                    type: 'integration',
+                    color: 'from-cyan-500 to-cyan-600'
+                },
+                {
+                    title: 'Chiến dịch Mùa hè xanh 2025',
+                    description: 'Bổ sung thêm ngày tình nguyện',
+                    date: 'Tháng 6 (15/06)',
+                    type: 'volunteer',
+                    color: 'from-purple-500 to-purple-600'
+                }
+            ];
+
+            suggestions.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-cyan-500/50 transition';
+                card.innerHTML = `
+                    <div class="flex gap-4">
+                        <div class="w-14 h-14 rounded-lg bg-gradient-to-br ${s.color} flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-lg">${s.date.split('/')[1]}</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg mb-1">${s.title}</h4>
+                            <p class="text-sm text-cyan-400 font-medium mb-2">${s.description}</p>
+                            <p class="text-xs text-slate-400">${s.date}</p>
+                        </div>
+                        <button class="px-4 py-2 rounded-lg font-semibold text-sm text-white bg-cyan-600 hover:bg-cyan-700 transition whitespace-nowrap">
+                            Đăng ký
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openModal(criteriaName) {
+            document.getElementById('uploadModal').classList.remove('hidden');
+            document.getElementById('uploadModal').classList.add('flex');
+            document.getElementById('modalCriteria').value = criteriaName;
+
+            setupFileUpload();
+        }
+
+        function closeModal() {
+            document.getElementById('uploadModal').classList.add('hidden');
+            document.getElementById('uploadModal').classList.remove('flex');
+            document.getElementById('modalTitle').value = '';
+            document.getElementById('modalDescription').value = '';
+            document.getElementById('filePreview').innerHTML = '';
+        }
+
+        function setupFileUpload() {
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+
+            dropZone.addEventListener('click', () => fileInput.click());
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+        }
+
+        function handleFiles(files) {
+            const preview = document.getElementById('filePreview');
+            preview.innerHTML = '';
+
+            if (files.length > 0) {
+                const file = files[0];
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                
+                const fileEl = document.createElement('div');
+                fileEl.className = 'bg-slate-700/50 rounded-lg p-3 flex items-center gap-3';
+                fileEl.innerHTML = `
+                    <div class="w-8 h-8 bg-cyan-500/20 rounded flex items-center justify-center">
+                        <i data-lucide="file-check" class="text-cyan-400 w-4 h-4"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-sm">${file.name}</p>
+                        <p class="text-xs text-slate-400">${fileSize} MB</p>
+                    </div>
+                    <button type="button" onclick="clearFile()" class="text-slate-400 hover:text-red-400 transition">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                    </button>
+                `;
+                preview.appendChild(fileEl);
+            }
+            lucide.createIcons();
+        }
+
+        function clearFile() {
+            document.getElementById('fileInput').value = '';
+            document.getElementById('filePreview').innerHTML = '';
+        }
+
+        function uploadDocument() {
+            const title = document.getElementById('modalTitle').value;
+            const description = document.getElementById('modalDescription').value;
+            const fileInput = document.getElementById('fileInput');
+
+            if (!title || !fileInput.files.length) {
+                alert('Vui lòng nhập tiêu đề và chọn file');
+                return;
+            }
+
+            // Simulate upload
+            alert('Tài liệu được tải lên thành công! Đang chờ xét duyệt...');
+            closeModal();
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+
+        // Initialize
+        initializeUser();
+    </script>
+</body>
+</html>

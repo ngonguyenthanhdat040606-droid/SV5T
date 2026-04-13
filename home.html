@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Quản lý Sinh viên 5 tốt - SGU</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100">
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-slate-900 via-cyan-800 to-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-6 mb-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center font-bold text-3xl shadow-lg">5T</div>
+                <div>
+                    <h1 class="text-5xl font-bold">Sinh viên 5 tốt</h1>
+                    <p class="text-cyan-200 text-xl mt-2">Trường Đại học Sài Gòn - Năm học 2024-2025</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-4 gap-4 mt-8">
+                <div class="bg-white/10 backdrop-blur rounded-lg p-5 border border-white/20">
+                    <p class="text-cyan-200 text-sm font-semibold">TỔNG SINH VIÊN</p>
+                    <p class="text-4xl font-bold mt-2">223</p>
+                </div>
+                <div class="bg-green-500/20 backdrop-blur rounded-lg p-5 border border-green-400/30">
+                    <p class="text-green-200 text-sm font-semibold">ĐẠT DANH HIỆU</p>
+                    <p class="text-4xl font-bold mt-2 text-green-300">190</p>
+                </div>
+                <div class="bg-red-500/20 backdrop-blur rounded-lg p-5 border border-red-400/30">
+                    <p class="text-red-200 text-sm font-semibold">KHÔNG ĐẠT</p>
+                    <p class="text-4xl font-bold mt-2 text-red-300">33</p>
+                </div>
+                <div class="bg-cyan-500/20 backdrop-blur rounded-lg p-5 border border-cyan-400/30">
+                    <p class="text-cyan-200 text-sm font-semibold">ĐÃ DUYỆT</p>
+                    <p class="text-4xl font-bold mt-2 text-cyan-300">223</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        
+        <!-- FEATURED SECTION -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                <i data-lucide="list" class="text-cyan-600 w-8 h-8"></i>
+                🎯 Xem Danh sách Sinh viên
+            </h2>
+            
+            <!-- Main Card - List -->
+            <a href="students-list-real.html" class="block bg-white rounded-2xl shadow-2xl hover:shadow-3xl transition p-8 border-l-4 border-cyan-500 mb-8">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">📋 Danh sách 223 Sinh viên</h3>
+                        <p class="text-slate-600 text-lg">Xem toàn bộ danh sách sinh viên với chi tiết đầy đủ</p>
+                    </div>
+                    <div class="w-16 h-16 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="table" class="text-cyan-600 w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="bg-slate-50 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-slate-600 mb-2">Bảng danh sách bao gồm:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-semibold">STT</span>
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-semibold">Họ tên</span>
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-semibold">MSV</span>
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-semibold">Khoa</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">✓ Đạt (190)</span>
+                        <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-semibold">✗ Không (33)</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 text-cyan-600 font-semibold">
+                    <span>Xem danh sách đầy đủ</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </div>
+            </a>
+        </div>
+
+        <!-- STATS & FEATURES -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <!-- STATISTICS -->
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="text-cyan-600 w-6 h-6"></i>
+                    Thống kê Kết quả
+                </h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-slate-900">✓ Đạt danh hiệu</span>
+                            <span class="font-bold text-green-600">190 (85.2%)</span>
+                        </div>
+                        <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-green-400 to-green-600" style="width: 85.2%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-slate-900">✗ Không đạt</span>
+                            <span class="font-bold text-red-600">33 (14.8%)</span>
+                        </div>
+                        <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-red-400 to-red-600" style="width: 14.8%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-cyan-50 rounded-lg p-4 mt-6">
+                    <p class="text-sm text-slate-700">
+                        ✓ Tất cả <strong>223 sinh viên</strong> đã được xét duyệt hoàn tất<br>
+                        ✓ <strong>190 sinh viên</strong> đạt danh hiệu "Sinh viên 5 tốt" cấp Trường<br>
+                        ✓ <strong>33 sinh viên</strong> chưa hoàn thành 5 tiêu chí
+                    </p>
+                </div>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i data-lucide="check-circle" class="text-cyan-600 w-6 h-6"></i>
+                    Tính năng Danh sách
+                </h3>
+
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="search" class="text-cyan-600 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-900">Tìm kiếm</p>
+                            <p class="text-sm text-slate-600">Tìm sinh viên theo tên hoặc MSV</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="filter" class="text-cyan-600 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-900">Lọc dữ liệu</p>
+                            <p class="text-sm text-slate-600">Lọc theo kết quả (Đạt/Không/Tất cả)</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="eye" class="text-cyan-600 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold text-slate-900">Chi tiết đầy đủ</p>
+                            <p class="text-sm text-slate-600">Tên, MSV, Khoa, Kết quả mỗi sinh viên</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DATA INFO -->
+        <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-8 border-l-4 border-cyan-500 mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <i data-lucide="info" class="text-cyan-600 w-6 h-6"></i>
+                📊 Thông tin Dữ liệu
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <p class="text-slate-700 mb-2">
+                        <strong>Nguồn dữ liệu:</strong> File Excel chính thức từ Hội Sinh viên<br>
+                        <strong>Tổng sinh viên xét:</strong> 223 bạn<br>
+                        <strong>Sinh viên đạt:</strong> 190 (85.2%)<br>
+                        <strong>Sinh viên không đạt:</strong> 33 (14.8%)
+                    </p>
+                </div>
+                <div>
+                    <p class="text-slate-700 mb-2">
+                        <strong>Trạng thái xét duyệt:</strong> ✓ Hoàn tất<br>
+                        <strong>Ngày cập nhật:</strong> 11/04/2026<br>
+                        <strong>Hệ thống:</strong> Sinh viên 5 tốt v1.0<br>
+                        <strong>Trường:</strong> Đại học Sài Gòn
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER PAGES -->
+        <div>
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                <i data-lucide="layers" class="text-cyan-600 w-8 h-8"></i>
+                Các trang khác
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="statistics-dashboard.html" class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition border border-slate-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="pie-chart" class="text-blue-600 w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Thống kê Chi tiết</h4>
+                    <p class="text-sm text-slate-600">Biểu đồ, tỷ lệ, phân tích dữ liệu</p>
+                </a>
+
+                <a href="data-verification.html" class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition border border-slate-200">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="check-square" class="text-green-600 w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Xác thực Dữ liệu</h4>
+                    <p class="text-sm text-slate-600">Kiểm tra và xác thực toàn bộ dữ liệu</p>
+                </a>
+
+                <a href="index.html" class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition border border-slate-200">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="log-in" class="text-purple-600 w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Đăng nhập Hệ thống</h4>
+                    <p class="text-sm text-slate-600">Sinh viên hoặc Ban Hội đăng nhập</p>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold mb-4">Về chương trình</h4>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li><a href="#" class="hover:text-white">Sinh viên 5 tốt</a></li>
+                        <li><a href="#" class="hover:text-white">5 tiêu chí</a></li>
+                        <li><a href="#" class="hover:text-white">Quy trình xét</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Liên kết</h4>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li><a href="#" class="hover:text-white">Danh sách sinh viên</a></li>
+                        <li><a href="#" class="hover:text-white">Thống kê</a></li>
+                        <li><a href="#" class="hover:text-white">Đăng nhập</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Trường</h4>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li>Đại học Sài Gòn</li>
+                        <li>TP. Hồ Chí Minh</li>
+                        <li>Năm học 2024-2025</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Hỗ trợ</h4>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li>Email: hoisinhvien@sgu.edu.vn</li>
+                        <li>Điện thoại: (028) xxxx xxxx</li>
+                        <li>Website: www.sgu.edu.vn</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-700 pt-8">
+                <p class="text-center text-slate-400">© 2026 Trường Đại học Sài Gòn - Hệ thống Quản lý Sinh viên 5 tốt</p>
+                <p class="text-center text-slate-500 text-sm mt-2">Dữ liệu: 223 sinh viên | 190 đạt (85.2%) | 33 không đạt (14.8%)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

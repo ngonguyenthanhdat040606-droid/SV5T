@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sinh viên 5 tốt Digital</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+        
+        .gradient-secondary {
+            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+        }
+        
+        .table-row {
+            @apply border-b border-slate-700 hover:bg-slate-700/50 transition;
+        }
+        
+        .status-badge {
+            @apply px-3 py-1 rounded-full text-xs font-semibold;
+        }
+        
+        .status-approved {
+            @apply bg-green-500/20 text-green-400;
+        }
+        
+        .status-pending {
+            @apply bg-yellow-500/20 text-yellow-400;
+        }
+        
+        .status-rejected {
+            @apply bg-red-500/20 text-red-400;
+        }
+        
+        .tab-active {
+            @apply text-cyan-400 border-b-2 border-cyan-400;
+        }
+        
+        .tab-inactive {
+            @apply text-slate-400 hover:text-slate-300 border-b-2 border-transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+
+    <!-- HEADER -->
+    <header class="h-20 bg-slate-800 border-b border-slate-700 flex items-center justify-between px-6 sticky top-0 z-40 shadow-lg">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 gradient-secondary rounded-lg flex items-center justify-center font-bold text-lg">5T</div>
+            <div>
+                <h1 class="font-bold text-lg">Sinh viên 5 tốt Digital - Admin</h1>
+                <p class="text-xs text-slate-400">Quản lý & Xét duyệt</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <button class="relative p-2 text-slate-400 hover:text-white transition">
+                <i data-lucide="bell" class="w-5 h-5"></i>
+                <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+            <button class="relative p-2 text-slate-400 hover:text-white transition">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center gap-3 pl-4 border-l border-slate-700">
+                <div class="text-right text-sm">
+                    <p class="font-semibold" id="adminName">Ban Giám hiệu Hội</p>
+                    <p class="text-xs text-slate-400">Hội Sinh viên Trường</p>
+                </div>
+                <button onclick="logout()" class="p-2 text-slate-400 hover:text-red-400 transition" title="Đăng xuất">
+                    <i data-lucide="log-out" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex h-[calc(100vh-80px)]">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-slate-800 border-r border-slate-700 p-6 overflow-y-auto">
+            <nav class="space-y-2">
+                <button onclick="switchPage('overview')" class="page-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-white bg-cyan-600 hover:bg-cyan-700 transition">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    Tổng quan
+                </button>
+                
+                <button onclick="switchPage('review')" class="page-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-slate-400 hover:text-white transition">
+                    <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+                    Xét duyệt hồ sơ
+                    <span class="ml-auto bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">3</span>
+                </button>
+                
+                <button onclick="switchPage('certificates')" class="page-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-slate-400 hover:text-white transition">
+                    <i data-lucide="award" class="w-5 h-5"></i>
+                    Cấp danh hiệu
+                </button>
+                
+                <button onclick="switchPage('statistics')" class="page-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-slate-400 hover:text-white transition">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                    Thống kê & Báo cáo
+                </button>
+                
+                <button onclick="switchPage('management')" class="page-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-slate-400 hover:text-white transition">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    Quản lý sinh viên
+                </button>
+            </nav>
+
+            <hr class="border-slate-700 my-6">
+
+            <div class="bg-slate-700/50 rounded-lg p-4 mb-4 text-sm">
+                <p class="text-xs text-slate-400 mb-2 flex items-center gap-2">
+                    <i data-lucide="info" class="w-4 h-4"></i>
+                    Thống kê nhanh
+                </p>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Chờ xét duyệt:</span>
+                        <span class="font-bold text-yellow-400">3 hồ sơ</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Đã duyệt:</span>
+                        <span class="font-bold text-green-400">12 hồ sơ</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Từ chối:</span>
+                        <span class="font-bold text-red-400">1 hồ sơ</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="logout()" class="w-full py-2 px-4 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700 transition text-sm font-medium flex items-center justify-center gap-2">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                Đăng xuất
+            </button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 overflow-y-auto p-8">
+            
+            <!-- OVERVIEW PAGE -->
+            <div id="page-overview">
+                <h1 class="text-4xl font-bold mb-8">Bảng điều khiển Quản lý</h1>
+
+                <!-- Statistics Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-cyan-500/50 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-slate-400 text-sm mb-2">Tổng sinh viên tham gia</p>
+                                <p class="text-3xl font-bold text-cyan-400">245</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                                <i data-lucide="users" class="text-cyan-400 w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500/50 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-slate-400 text-sm mb-2">Đã cấp danh hiệu trường</p>
+                                <p class="text-3xl font-bold text-green-400">38</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                                <i data-lucide="award" class="text-green-400 w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-yellow-500/50 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-slate-400 text-sm mb-2">Đang chờ xét duyệt</p>
+                                <p class="text-3xl font-bold text-yellow-400">3</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                                <i data-lucide="clock" class="text-yellow-400 w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-red-500/50 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-slate-400 text-sm mb-2">Hồ sơ không đạt</p>
+                                <p class="text-3xl font-bold text-red-400">4</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center">
+                                <i data-lucide="x-circle" class="text-red-400 w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities & Charts -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="history" class="text-cyan-500 w-5 h-5"></i>
+                            Hoạt động gần đây
+                        </h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-700">
+                                <div>
+                                    <p class="font-semibold">Nguyễn Văn A</p>
+                                    <p class="text-xs text-slate-400">Tải lên chứng chỉ Tiếng Anh</p>
+                                </div>
+                                <p class="text-xs text-slate-500">1 giờ trước</p>
+                            </div>
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-700">
+                                <div>
+                                    <p class="font-semibold">Trần Thị B</p>
+                                    <p class="text-xs text-slate-400">Đã duyệt tiêu chí "Đạo đức"</p>
+                                </div>
+                                <p class="text-xs text-slate-500">3 giờ trước</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-semibold">Lê Văn C</p>
+                                    <p class="text-xs text-slate-400">Yêu cầu bổ sung hồ sơ</p>
+                                </div>
+                                <p class="text-xs text-slate-500">5 giờ trước</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="pie-chart" class="text-purple-500 w-5 h-5"></i>
+                            Tỷ lệ hoàn thành
+                        </h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Đạo đức tốt</span>
+                                    <span class="font-bold text-green-400">95%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Học tập tốt</span>
+                                    <span class="font-bold text-blue-400">87%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Thể lực tốt</span>
+                                    <span class="font-bold text-orange-400">65%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-orange-500" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Tình nguyện tốt</span>
+                                    <span class="font-bold text-purple-400">92%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-purple-500" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Hội nhập tốt</span>
+                                    <span class="font-bold text-cyan-400">78%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-cyan-500" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REVIEW PAGE -->
+            <div id="page-review" class="hidden">
+                <h1 class="text-3xl font-bold mb-6">Xét duyệt Hồ sơ</h1>
+
+                <!-- Filter & Search -->
+                <div class="flex gap-4 mb-6">
+                    <input type="text" placeholder="Tìm kiếm sinh viên..." class="flex-1 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:border-cyan-500 focus:outline-none text-white">
+                    <select class="px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:border-cyan-500 focus:outline-none text-white">
+                        <option>Trạng thái: Tất cả</option>
+                        <option>Chờ xét duyệt</option>
+                        <option>Đã duyệt</option>
+                        <option>Cần bổ sung</option>
+                    </select>
+                </div>
+
+                <!-- Applications Table -->
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-slate-700/50 border-b border-slate-700">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Sinh viên</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Mã SV</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Tiêu chí</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Trạng thái</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Ngày nộp</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700">
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=06B6D4&color=fff&size=40" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-sm">Nguyễn Văn A</p>
+                                            <p class="text-xs text-slate-400">Khóa FIT61</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm">3120410001</td>
+                                <td class="px-6 py-4 text-sm">Hội nhập tốt</td>
+                                <td class="px-6 py-4">
+                                    <span class="status-badge status-pending">Đang xét</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-slate-400">2 giờ trước</td>
+                                <td class="px-6 py-4 text-center">
+                                    <button onclick="openReviewModal('Nguyễn Văn A', '3120410001', 'Hội nhập tốt')" class="px-3 py-1 rounded text-xs font-semibold bg-cyan-600 hover:bg-cyan-700 transition">
+                                        Xem
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Tran+Thi+B&background=06B6D4&color=fff&size=40" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-sm">Trần Thị B</p>
+                                            <p class="text-xs text-slate-400">Khóa BIS61</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm">3120410002</td>
+                                <td class="px-6 py-4 text-sm">Học tập tốt</td>
+                                <td class="px-6 py-4">
+                                    <span class="status-badge status-pending">Đang xét</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-slate-400">5 giờ trước</td>
+                                <td class="px-6 py-4 text-center">
+                                    <button onclick="openReviewModal('Trần Thị B', '3120410002', 'Học tập tốt')" class="px-3 py-1 rounded text-xs font-semibold bg-cyan-600 hover:bg-cyan-700 transition">
+                                        Xem
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://ui-avatars.com/api/?name=Le+Van+C&background=06B6D4&color=fff&size=40" class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-sm">Lê Văn C</p>
+                                            <p class="text-xs text-slate-400">Khóa AT61</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm">3120410003</td>
+                                <td class="px-6 py-4 text-sm">Thể lực tốt</td>
+                                <td class="px-6 py-4">
+                                    <span class="status-badge status-pending">Đang xét</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-slate-400">1 ngày trước</td>
+                                <td class="px-6 py-4 text-center">
+                                    <button onclick="openReviewModal('Lê Văn C', '3120410003', 'Thể lực tốt')" class="px-3 py-1 rounded text-xs font-semibold bg-cyan-600 hover:bg-cyan-700 transition">
+                                        Xem
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CERTIFICATES PAGE -->
+            <div id="page-certificates" class="hidden">
+                <h1 class="text-3xl font-bold mb-6">Cấp Danh hiệu</h1>
+                
+                <div class="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-6">
+                    <h3 class="text-lg font-bold mb-4">Danh sách cấp danh hiệu</h3>
+                    <p class="text-slate-400 text-sm mb-4">Công bố và cấp danh hiệu cho sinh viên đạt tiêu chí</p>
+                    
+                    <button onclick="openCertificateModal()" class="px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 transition">
+                        <i data-lucide="plus" class="w-4 h-4 inline mr-2"></i>
+                        Tạo quyết định cấp danh hiệu
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-800 rounded-xl border border-slate-700 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="font-bold text-lg">Quyết định số 001/QĐ-SV5T/2025</h4>
+                                <p class="text-sm text-slate-400 mt-1">Về việc cấp danh hiệu "Sinh viên 5 tốt" cấp Trường</p>
+                            </div>
+                            <span class="status-badge status-approved">✓ Công bố</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-4">38 sinh viên được công bố | Ngày công bố: 25/10/2025</p>
+                        <button class="px-4 py-2 rounded-lg font-semibold text-sm text-white bg-slate-700 hover:bg-slate-600 transition">
+                            <i data-lucide="download" class="w-4 h-4 inline mr-2"></i>
+                            Tải xuống danh sách
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATISTICS PAGE -->
+            <div id="page-statistics" class="hidden">
+                <h1 class="text-3xl font-bold mb-6">Thống kê & Báo cáo</h1>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-slate-800 rounded-xl border border-slate-700 p-6">
+                        <h3 class="text-lg font-bold mb-4">Tiêu chí hoàn thành</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Đạo đức tốt</span>
+                                    <span class="font-bold">95%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Học tập tốt</span>
+                                    <span class="font-bold">87%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Thể lực tốt</span>
+                                    <span class="font-bold">65%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-orange-500" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Tình nguyện tốt</span>
+                                    <span class="font-bold">92%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-purple-500" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-2">
+                                    <span>Hội nhập tốt</span>
+                                    <span class="font-bold">78%</span>
+                                </div>
+                                <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-cyan-500" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl border border-slate-700 p-6">
+                        <h3 class="text-lg font-bold mb-4">Thống kê theo khóa</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between pb-2 border-b border-slate-700">
+                                <span>FIT61: 15 sinh viên</span>
+                                <span class="text-cyan-400 font-semibold">6.1%</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-slate-700">
+                                <span>BIS61: 12 sinh viên</span>
+                                <span class="text-cyan-400 font-semibold">4.9%</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-slate-700">
+                                <span>AT61: 8 sinh viên</span>
+                                <span class="text-cyan-400 font-semibold">3.3%</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-slate-700">
+                                <span>ENG61: 3 sinh viên</span>
+                                <span class="text-cyan-400 font-semibold">1.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Tổng cộng</span>
+                                <span class="text-cyan-400 font-semibold">38 sinh viên</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 transition">
+                    <i data-lucide="file-download" class="w-4 h-4 inline mr-2"></i>
+                    Xuất báo cáo PDF
+                </button>
+            </div>
+
+            <!-- MANAGEMENT PAGE -->
+            <div id="page-management" class="hidden">
+                <h1 class="text-3xl font-bold mb-6">Quản lý Sinh viên</h1>
+
+                <div class="flex gap-4 mb-6">
+                    <input type="text" placeholder="Tìm kiếm..." class="flex-1 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:border-cyan-500 focus:outline-none text-white">
+                    <select class="px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:border-cyan-500 focus:outline-none text-white">
+                        <option>Khóa: Tất cả</option>
+                        <option>FIT61</option>
+                        <option>BIS61</option>
+                        <option>AT61</option>
+                    </select>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-slate-700/50 border-b border-slate-700">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Sinh viên</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Mã SV</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Khóa</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Tiến độ</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700">
+                            <tr class="table-row">
+                                <td class="px-6 py-4">Nguyễn Văn A</td>
+                                <td class="px-6 py-4 font-mono text-sm">3120410001</td>
+                                <td class="px-6 py-4 text-sm">FIT61</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-24 h-2 bg-slate-700 rounded-full overflow-hidden">
+                                            <div class="h-full bg-cyan-500" style="width: 40%"></div>
+                                        </div>
+                                        <span class="text-xs font-semibold">40%</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="px-3 py-1 rounded text-xs font-semibold bg-slate-700 hover:bg-slate-600 transition">Chi tiết</button>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4">Trần Thị B</td>
+                                <td class="px-6 py-4 font-mono text-sm">3120410002</td>
+                                <td class="px-6 py-4 text-sm">BIS61</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-24 h-2 bg-slate-700 rounded-full overflow-hidden">
+                                            <div class="h-full bg-cyan-500" style="width: 60%"></div>
+                                        </div>
+                                        <span class="text-xs font-semibold">60%</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <button class="px-3 py-1 rounded text-xs font-semibold bg-slate-700 hover:bg-slate-600 transition">Chi tiết</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- REVIEW MODAL -->
+    <div id="reviewModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-slate-800 rounded-2xl w-full max-w-2xl border border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center p-6 border-b border-slate-700 bg-slate-700/50 sticky top-0">
+                <h3 class="text-xl font-bold">Xét duyệt hồ sơ</h3>
+                <button onclick="closeReviewModal()" class="text-slate-400 hover:text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <!-- Student Info -->
+                <div class="bg-slate-700/50 rounded-lg p-4">
+                    <h4 class="font-bold mb-3">Thông tin sinh viên</h4>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <p class="text-slate-400">Họ tên</p>
+                            <p class="font-semibold" id="modalStudentName">-</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-400">Mã sinh viên</p>
+                            <p class="font-semibold font-mono" id="modalStudentCode">-</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-400">Tiêu chí</p>
+                            <p class="font-semibold" id="modalCriteriaName">-</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-400">Ngày nộp</p>
+                            <p class="font-semibold">25/10/2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents -->
+                <div>
+                    <h4 class="font-bold mb-3">Tài liệu minh chứng</h4>
+                    <div class="bg-slate-700/50 rounded-lg p-4 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-red-500/20 rounded flex items-center justify-center">
+                            <i data-lucide="file-pdf" class="text-red-400 w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Chứng chỉ Tiếng Anh B1.pdf</p>
+                            <p class="text-xs text-slate-400">2.5 MB</p>
+                        </div>
+                        <button class="px-3 py-1 rounded text-xs font-semibold bg-slate-600 hover:bg-slate-500 transition">
+                            <i data-lucide="download" class="w-3 h-3 inline mr-1"></i> Tải
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Comments -->
+                <div>
+                    <h4 class="font-bold mb-3">Bình luận & Ghi chú</h4>
+                    <textarea placeholder="Nhập bình luận..." rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white resize-none"></textarea>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-700/50 border-t border-slate-700 flex justify-end gap-3 sticky bottom-0">
+                <button onclick="closeReviewModal()" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg transition">
+                    Hủy
+                </button>
+                <button onclick="rejectApplication()" class="px-5 py-2 text-sm font-semibold text-white bg-red-600 hover:bg-red-700 rounded-lg transition">
+                    <i data-lucide="x" class="w-4 h-4 inline mr-1"></i> Từ chối
+                </button>
+                <button onclick="approveApplication()" class="px-5 py-2 text-sm font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg transition">
+                    <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Phê duyệt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE MODAL -->
+    <div id="certificateModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-slate-800 rounded-2xl w-full max-w-lg border border-slate-700">
+            <div class="flex justify-between items-center p-6 border-b border-slate-700 bg-slate-700/50">
+                <h3 class="text-xl font-bold">Tạo quyết định cấp danh hiệu</h3>
+                <button onclick="closeCertificateModal()" class="text-slate-400 hover:text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Loại danh hiệu</label>
+                    <select class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white">
+                        <option>Sinh viên 5 tốt cấp Trường</option>
+                        <option>Sinh viên 5 tốt cấp Thành phố</option>
+                        <option>Tập thể Sinh viên 5 tốt</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Chọn sinh viên</label>
+                    <select class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white">
+                        <option>-- Danh sách sinh viên đạt tiêu chí --</option>
+                        <option>Nguyễn Văn A - 3120410001</option>
+                        <option>Trần Thị B - 3120410002</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Ngày công bố</label>
+                    <input type="date" class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Ghi chú</label>
+                    <textarea placeholder="Ghi chú thêm..." rows="3" class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:border-cyan-500 focus:outline-none text-white resize-none"></textarea>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-700/50 border-t border-slate-700 flex justify-end gap-3">
+                <button onclick="closeCertificateModal()" class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white rounded-lg transition">
+                    Hủy
+                </button>
+                <button onclick="saveCertificate()" class="px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 rounded-lg transition">
+                    <i data-lucide="save" class="w-4 h-4 inline mr-1"></i> Lưu quyết định
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function switchPage(pageName) {
+            // Hide all pages
+            document.querySelectorAll('main > div[id^="page-"]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById('page-' + pageName).classList.remove('hidden');
+
+            // Update sidebar buttons
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.remove('!bg-cyan-600', '!text-white');
+                btn.classList.add('!text-slate-400');
+            });
+            
+            event.target.closest('button').classList.add('!bg-cyan-600', '!text-white');
+            event.target.closest('button').classList.remove('!text-slate-400');
+        }
+
+        function openReviewModal(name, code, criteria) {
+            document.getElementById('reviewModal').classList.remove('hidden');
+            document.getElementById('modalStudentName').textContent = name;
+            document.getElementById('modalStudentCode').textContent = code;
+            document.getElementById('modalCriteriaName').textContent = criteria;
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+        }
+
+        function openCertificateModal() {
+            document.getElementById('certificateModal').classList.remove('hidden');
+        }
+
+        function closeCertificateModal() {
+            document.getElementById('certificateModal').classList.add('hidden');
+        }
+
+        function approveApplication() {
+            alert('Hồ sơ được phê duyệt!');
+            closeReviewModal();
+        }
+
+        function rejectApplication() {
+            alert('Hồ sơ bị từ chối!');
+            closeReviewModal();
+        }
+
+        function saveCertificate() {
+            alert('Quyết định được tạo thành công!');
+            closeCertificateModal();
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
