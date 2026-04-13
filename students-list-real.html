@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách 223 Sinh viên 5 tốt - Trường ĐH Sài Gòn</title>
+    <title>Danh sách 225 Sinh viên 5 tốt - Trường ĐH Sài Gòn</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -17,17 +17,17 @@
 
     <header class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-10 sticky top-0 z-30">
         <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-4xl font-bold mb-2">📋 Danh sách 223 Sinh viên 5 tốt</h1>
+            <h1 class="text-4xl font-bold mb-2">📋 Danh sách 225 Sinh viên 5 tốt</h1>
             <p class="text-cyan-200">Trường Đại học Sài Gòn - Năm học 2024-2025</p>
             
             <div class="grid grid-cols-3 gap-4 mt-6">
                 <div class="bg-white/10 backdrop-blur rounded-lg p-4">
                     <p class="text-cyan-200 text-sm">TỔNG SINH VIÊN</p>
-                    <p class="text-3xl font-bold text-white" id="totalCount">223</p>
+                    <p class="text-3xl font-bold text-white" id="totalCount">225</p>
                 </div>
                 <div class="bg-green-500/20 backdrop-blur rounded-lg p-4">
                     <p class="text-green-200 text-sm">ĐẠT DANH HIỆU</p>
-                    <p class="text-3xl font-bold text-green-300" id="achievedCount">190</p>
+                    <p class="text-3xl font-bold text-green-300" id="achievedCount">192</p>
                 </div>
                 <div class="bg-red-500/20 backdrop-blur rounded-lg p-4">
                     <p class="text-red-200 text-sm">KHÔNG ĐẠT</p>
@@ -45,8 +45,8 @@
                     class="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-500">
                 
                 <select id="filterSelect" class="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none">
-                    <option value="">-- Tất cả (223) --</option>
-                    <option value="achieved">✓ Đạt danh hiệu (190)</option>
+                    <option value="">-- Tất cả (225) --</option>
+                    <option value="achieved">✓ Đạt danh hiệu (192)</option>
                     <option value="not_achieved">✗ Không đạt (33)</option>
                 </select>
             </div>
@@ -69,7 +69,7 @@
             </div>
 
             <p class="text-sm text-slate-500 mt-6 text-center">
-                Hiển thị <span id="resultCount">223</span> sinh viên
+                Hiển thị <span id="resultCount">225</span> sinh viên
             </p>
         </div>
 
@@ -78,106 +78,290 @@
     <footer class="bg-slate-900 text-white py-8">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p>© 2026 Trường Đại học Sài Gòn - Hệ thống Quản lý Sinh viên 5 tốt</p>
-            <p class="text-slate-400 text-sm mt-2">Dữ liệu: 223 sinh viên | 190 đạt (85.2%) | 33 không đạt (14.8%)</p>
+            <p class="text-slate-400 text-sm mt-2">Dữ liệu: 225 sinh viên | 192 đạt (85.2%) | 33 không đạt (14.8%)</p>
         </div>
     </footer>
 
-<script>
-    lucide.createIcons();
-    let studentsData = [];
+    <script>
+        lucide.createIcons();
 
-    async function loadStudents() {
-        let raw = [];
-        // 1. Thử lấy từ API (MongoDB)
-        try {
-            const res = await fetch('/api/admin/students');
-            const json = await res.json();
-            if (json.success && json.data) {
-                raw = json.data;
-            }
-        } catch (e) { console.log("API chưa sẵn sàng, thử đọc file JSON..."); }
+        // Dữ liệu sinh viên (225 sinh viên từ Excel)
+        const studentsData = [
+            // 192 sinh viên ĐẠT
+{"stt": 1, "name": "Hồ Anh Thư", "msv": "3121200023", "faculty": "GIÁO DỤC CHÍNH TRỊ", "status": "achieved"},
+{"stt": 2, "name": "Trần Anh Thư", "msv": "3122200012", "faculty": "GIÁO DỤC CHÍNH TRỊ", "status": "achieved"},
+{"stt": 3, "name": "Võ Cẩm Giang", "msv": "3122200003", "faculty": "GIÁO DỤC CHÍNH TRỊ", "status": "achieved"},
+{"stt": 4, "name": "Võ Thanh Quyền", "msv": "3122200009", "faculty": "GIÁO DỤC CHÍNH TRỊ", "status": "achieved"},
+{"stt": 5, "name": "Lê Thị Thùy Linh", "msv": "3121200013", "faculty": "GIÁO DỤC CHÍNH TRỊ", "status": "achieved"},
+{"stt": 6, "name": "Nguyễn Thị Phương Khiêm", "msv": "3122200005", "faculty": "GIÁO DỤC CHÍNH TRỊ", "status": "achieved"},
+{"stt": 7, "name": "Bùi Cao Ái Trân", "msv": "3123430196", "faculty": "LUẬT", "status": "not_achieved"},
+{"stt": 8, "name": "Bùi Thanh Xuân", "msv": "3123430222", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 9, "name": "Đỗ Lê Kim Yến", "msv": "3123430228", "faculty": "LUẬT", "status": "not_achieved"},
+{"stt": 10, "name": "Mai Nguyễn Trà My", "msv": "3122430104", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 11, "name": "Nguyễn Đắc Triết", "msv": "3122430202", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 12, "name": "Nguyễn Hữu Thiện Nhiên", "msv": "3123430131", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 13, "name": "Nguyễn Nữ Minh Thư", "msv": "3123430178", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 14, "name": "Nguyễn Thanh Bảo Tâm", "msv": "3124430141", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 15, "name": "Nguyễn Thị Ngọc Tâm", "msv": "3123430156", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 16, "name": "Nguyễn Văn Thành", "msv": "3124430149", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 17, "name": "Trần Ngọc Linh", "msv": "3123430088", "faculty": "LUẬT", "status": "not_achieved"},
+{"stt": 18, "name": "Trần Ngọc Minh Anh", "msv": "3122430014", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 19, "name": "Trần Nguyễn Thùy Trang", "msv": "3124430177", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 20, "name": "Trịnh Tú Hảo", "msv": "3122430044", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 21, "name": "Võ Thanh Thảo", "msv": "3123430163", "faculty": "LUẬT", "status": "not_achieved"},
+{"stt": 22, "name": "Nguyễn Trương Diễm Ngọc", "msv": "3122430118", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 23, "name": "Nguyễn Tấn Tài", "msv": "3123430154", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 24, "name": "Đào Trần Thanh", "msv": "3121430166", "faculty": "LUẬT", "status": "achieved"},
+{"stt": 25, "name": "Đặng Thị Cúc", "msv": "3122350030", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 26, "name": "Hà Thái Toàn", "msv": "3123350177", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "not_achieved"},
+{"stt": 27, "name": "Huỳnh Thị Xu Kiên", "msv": "3122540036", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "not_achieved"},
+{"stt": 28, "name": "Khưu Mỹ Hoàng", "msv": "3122570045", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 29, "name": "Lê Hoàng Vinh", "msv": "3122570149", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "not_achieved"},
+{"stt": 30, "name": "Nguyễn Phạm Huy Phúc", "msv": "3122350184", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "not_achieved"},
+{"stt": 31, "name": "Nguyễn Thị Tuyết Ngân", "msv": "3121540074", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 32, "name": "Thông Thị Diệu Hiền", "msv": "3123570037", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 33, "name": "Trang Võ Thảo Nhi", "msv": "3122570086", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "not_achieved"},
+{"stt": 34, "name": "Trần Thị Ánh Lan", "msv": "3122540040", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "not_achieved"},
+{"stt": 35, "name": "Trần Thị Thùy Duyên", "msv": "3123540014", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 36, "name": "Nguyễn Thị Thiện Nhàn", "msv": "3121540085", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 37, "name": "Trần Trung Trí", "msv": "3123570142", "faculty": "VĂN HOÁ VÀ DU LỊCH", "status": "achieved"},
+{"stt": 38, "name": "Hồ Đông Quân", "msv": "3123020023", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 39, "name": "Nguyễn Công Minh", "msv": "3123020016", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 40, "name": "Nguyễn Hoàng Khánh Linh", "msv": "3123020013", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 41, "name": "Nguyễn Thị Mỹ Linh", "msv": "3123060018", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 42, "name": "Phạm Thái Hoài An", "msv": "3123020002", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 43, "name": "Thái Thị Kim Ngân", "msv": "3122030009", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 44, "name": "Trần Ngọc Tuyết Như", "msv": "3123020019", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 45, "name": "Trần Thanh Tiến", "msv": "3123020031", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "not_achieved"},
+{"stt": 46, "name": "Trần Thị Huỳnh Như", "msv": "3121020023", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 47, "name": "Trương Ngọc Thảo My", "msv": "3123060021", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 48, "name": "Trương Thùy Trang", "msv": "3121060033", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 49, "name": "Vũ Hà Kiều Trang", "msv": "3123020035", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 50, "name": "Lê Minh Khánh Duy", "msv": "3122060003", "faculty": "SƯ PHẠM KHOA HỌC TỰ NHIÊN", "status": "achieved"},
+{"stt": 51, "name": "Đinh Thị Lan Anh", "msv": "3123500003", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "not_achieved"},
+{"stt": 52, "name": "Nguyễn Đức Thắng", "msv": "3123340038", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 53, "name": "Ngô Thị Kim Tuyền", "msv": "3123340048", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 54, "name": "Ngô Thị Ngọc Tuyền", "msv": "3123340048", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 55, "name": "Nguyễn Thị Thảo Quỳnh", "msv": "3123340032", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 56, "name": "Trần Ngọc Minh Thư", "msv": "3123340041", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 57, "name": "Lê Thái Bảo Ngọc", "msv": "3121340047", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 58, "name": "Nguyễn Hoàng Phương Linh", "msv": "3121340033", "faculty": "KỸ THUẬT VÀ CÔNG NGHỆ", "status": "achieved"},
+{"stt": 59, "name": "Tô Nguyễn Thảo Quyên", "msv": "3121150147", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 60, "name": "Võ Hoàng Duy", "msv": "3121150036", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 61, "name": "Trần Bùi Thảo My", "msv": "3121150004", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 62, "name": "Phan Thị Hồng Ánh", "msv": "3122150011", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 63, "name": "Vương Huỳnh Bảo Hân", "msv": "3122150033", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 64, "name": "Nguyễn Phan Thảo Huyên", "msv": "3122150042", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 65, "name": "Bùi Thanh Ngân", "msv": "3122150070", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 66, "name": "Nguyễn Trọng Tín", "msv": "3122150143", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 67, "name": "Lê Nguyễn Đoan Trang", "msv": "3122150146", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 68, "name": "Nguyễn Thị Huyền Trân", "msv": "3122150155", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 69, "name": "Nguyễn Thị Tuyết Trinh", "msv": "3122150158", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 70, "name": "Nguyễn Ngọc Kim Trúc", "msv": "3122150161", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 71, "name": "Nguyễn Ngọc Phương Anh", "msv": "3122150005", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 72, "name": "Nguyễn Thị Thùy Linh", "msv": "3122150055", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 73, "name": "Lê Văn Luận", "msv": "3122150061", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 74, "name": "Cao Ngọc Thanh Thảo", "msv": "3122150122", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 75, "name": "Bùi Nguyễn Phương Thùy", "msv": "3122150128", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 76, "name": "Lê Thị Huyền Trang", "msv": "3122150147", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 77, "name": "Đinh Thị Cẩm Tú", "msv": "3122150162", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 78, "name": "Lê Quốc Vinh", "msv": "3122150169", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 79, "name": "Mai Thị Minh Huyền", "msv": "3122150044", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 80, "name": "Đỗ Trần Kim Ngân", "msv": "3122150072", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 81, "name": "Trịnh Nguyễn Ngọc Nhi", "msv": "3122150092", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 82, "name": "Lâm Tâm Như", "msv": "3122150096", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 83, "name": "Nguyễn Thị Trình", "msv": "3122150160", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 84, "name": "Cao Trần Thảo Vy", "msv": "3122150170", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "not_achieved"},
+{"stt": 85, "name": "Nguyễn Thị Hải Yến", "msv": "3122150179", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 86, "name": "Nguyễn Hồng Nhạc", "msv": "3123150105", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 87, "name": "Đỗ Nguyễn Mai Uyên", "msv": "3123150188", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 88, "name": "Hồ Thị Thúy Diểm", "msv": "3123150033", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 89, "name": "Diệc Thiên Hương", "msv": "3123150061", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 90, "name": "Nguyễn Thị Trúc Lin", "msv": "3123150067", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 91, "name": "Lâm Tường Nhi", "msv": "3123150109", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 92, "name": "Phạm Thị Nhi", "msv": "3123150116", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 93, "name": "Võ Minh Quyền", "msv": "3123150135", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 94, "name": "Đỗ Minh Thy", "msv": "3123150167", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 95, "name": "Trần Thị Lan Anh", "msv": "3123150015", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 96, "name": "Võ Quang Mỹ", "msv": "3123150092", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 97, "name": "Trần Thanh Tâm", "msv": "3123150146", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 100, "name": "Nguyễn Thị Ái Na", "msv": "3124150081", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 101, "name": "Mai Hồng Phượng", "msv": "3124150119", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 102, "name": "Nguyễn Thị Kiều Thơ", "msv": "3124150137", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 103, "name": "Nguyễn Ngọc Anh Thư", "msv": "3124150143", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 104, "name": "Trần Thị Hải Yến", "msv": "3121150223", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 105, "name": "Hồ Linh Trung", "msv": "3121150196", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 106, "name": "Tạ Hạnh Kim Ngân", "msv": "3121150106", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 107, "name": "Thiều Ngọc Hoàng Vy", "msv": "3121150219", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 108, "name": "Lê Thị Thanh Thanh", "msv": "Không có", "faculty": "GIÁO DỤC TIỂU HỌC", "status": "achieved"},
+{"stt": 109, "name": "Khiếu Thị Thùy Dương", "msv": "3124130015", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 110, "name": "Lâm Đình Quốc Khánh", "msv": "3123380133", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 111, "name": "Lưu Gia Linh", "msv": "3124130045", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 112, "name": "Nguyễn Anh Tuấn", "msv": "3123130143", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 113, "name": "Nguyễn Công Thành", "msv": "3121130125", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 114, "name": "Nguyễn Đỗ Minh Phương", "msv": "3123130104", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 115, "name": "Nguyễn Gia Bảo", "msv": "3124130009", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 116, "name": "Nguyễn Lê Quỳnh Như", "msv": "3123380226", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 117, "name": "Nguyễn Thị Hoàng Mơ", "msv": "Không có", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 118, "name": "Nguyễn Thị Huyền Trang", "msv": "3122380297", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 119, "name": "Nguyễn Trung Kiên", "msv": "3123130056", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 120, "name": "Phạm Ngọc Bảo Trân", "msv": "3122380306", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 121, "name": "Phan Lê Yến Nhi", "msv": "3121130006", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 122, "name": "Trần Tấn Trí Đức", "msv": "3121380069", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 123, "name": "Triệu Thị Hiền Tâm", "msv": "3122130044", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 124, "name": "Trương Huyền Diệu", "msv": "3124130012", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 125, "name": "Võ Hoàng Minh Triết", "msv": "3123130140", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 126, "name": "Võ Mai Hải Phương", "msv": "3123130108", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 127, "name": "Vũ Diệp Minh Huyền", "msv": "3123380117", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 128, "name": "Vũ Huy Hoàng", "msv": "3123380105", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 129, "name": "Đặng Vỹ Khang", "msv": "3123130052", "faculty": "NGOẠI NGỮ", "status": "achieved"},
+{"stt": 130, "name": "Cao Thị Cẩm Tú", "msv": "3122190112", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 131, "name": "Mã Tú Trân", "msv": "3124190142", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 132, "name": "Nghị Huỳnh Xuân Trang", "msv": "3122190105", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 133, "name": "Nguyễn Trương Kim Ngọc", "msv": "3123190077", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 134, "name": "Trần Kim Phúc", "msv": "3123190099", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 135, "name": "Võ Ngọc Anh", "msv": "3123190005", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 136, "name": "Phạm Thị Ngọc Thảo", "msv": "3122190086", "faculty": "GIÁO DỤC MẦM NON", "status": "achieved"},
+{"stt": 137, "name": "Dương Đức Phú", "msv": "3123010031", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 138, "name": "Hà Bảo Dung", "msv": "3123010004", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 139, "name": "Hàng Hải Quân", "msv": "3123010033", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 140, "name": "Lương Phan Hữu Lễ", "msv": "3124480032", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 141, "name": "Lưu Thị Ngọc Hiếu", "msv": "3124580016", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 142, "name": "Mai Ngọc Anh", "msv": "3123480002", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 143, "name": "Ngô Nguyễn Thành Đạt", "msv": "3124580011", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 144, "name": "Nguyễn Đức Sang", "msv": "3121480061", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 145, "name": "Nguyễn Huyền Trang", "msv": "3121010002", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 146, "name": "Nguyễn Huỳnh Thu Liên", "msv": "3124480033", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 147, "name": "Nguyễn Như Quỳnh", "msv": "3124480061", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 148, "name": "Phan Thị Huỳnh Mai", "msv": "3121480038", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 149, "name": "Trần Ngọc Khánh", "msv": "3122010005", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 150, "name": "Trần Phương Thảo", "msv": "3124480067", "faculty": "TOÁN - ỨNG DỤNG", "status": "not_achieved"},
+{"stt": 151, "name": "Võ Thị Minh Thảo", "msv": "3121480068", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 152, "name": "Nguyễn Thanh Danh", "msv": "3123010003", "faculty": "TOÁN - ỨNG DỤNG", "status": "not_achieved"},
+{"stt": 153, "name": "Lê Hải Phụng", "msv": "3121010034", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 154, "name": "Trương Hải Châu", "msv": "3121010002", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 155, "name": "Nguyễn Minh Khang", "msv": "3121010016", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 156, "name": "Lê Công Phước", "msv": "3121010036", "faculty": "TOÁN - ỨNG DỤNG", "status": "achieved"},
+{"stt": 157, "name": "Dương Thị Nhung", "msv": "3121320296", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 158, "name": "Đặng Thị Hương Lan", "msv": "3122320138", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 159, "name": "Đỗ Thảo Linh.", "msv": "3122420174", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 160, "name": "Hà Hồ Phương Thảo", "msv": "3122420347", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 161, "name": "Hoàng Ngọc Dạ Thảo", "msv": "3121320360", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 162, "name": "Huỳnh Ngọc Trâm", "msv": "3123320412", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 163, "name": "Huỳnh Thị Thắm", "msv": "3122420361", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 164, "name": "Khưu Mỹ Phụng", "msv": "3124320261", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 165, "name": "Lê Phạm Mai Phương", "msv": "3122420300", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 166, "name": "Lê Quỳnh Anh", "msv": "3122420013", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 167, "name": "Lê Thị Trúc Quyên", "msv": "3122420317", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 168, "name": "Nguyễn Hoàng Nhi", "msv": "3123420295", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 169, "name": "Nguyễn Thị Mỹ Linh", "msv": "3123320154", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 170, "name": "Nguyễn Thị Ni", "msv": "3121320307", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 171, "name": "Nguyễn Thị Thúy Vy", "msv": "3122420486", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 172, "name": "Nguyễn Thị Yến Nhi", "msv": "3123420299", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 173, "name": "Nguyễn Thùy Dung", "msv": "3122320038", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 174, "name": "Phạm Thị Hồng Nhung", "msv": "3123320266", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 175, "name": "Phạm Thuỳ Trang", "msv": "3121320436", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 176, "name": "Phan Anh Thư", "msv": "3123320324", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 177, "name": "Thái Ngọc Thùy Linh", "msv": "3122420186", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 178, "name": "Tống Giang Thanh", "msv": "3122420345", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 179, "name": "Trần Thị Ánh Đăng", "msv": "3122420079", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 180, "name": "Trần Thị Hải", "msv": "3122320069", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 181, "name": "Võ Tấn Phát", "msv": "3121420311", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 182, "name": "Võ Thị Anh Thư", "msv": "3123420441", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 183, "name": "Võ Thị Hồng Diễm", "msv": "3122420052", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 184, "name": "Đào Ngọc Linh", "msv": "3121320168", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 185, "name": "Lý Thị Ngọc Mai", "msv": "3121320196", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 186, "name": "Nguyễn Ngọc Tâm Thi", "msv": "3121320376", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 187, "name": "Ngô Phương Thanh", "msv": "3121320353", "faculty": "TÀI CHÍNH - KẾ TOÁN", "status": "achieved"},
+{"stt": 188, "name": "Diệp Thụy An", "msv": "3122410001", "faculty": "CÔNG NGHỆ THÔNG TIN", "status": "achieved"},
+{"stt": 189, "name": "Đàm Thị Ngọc Châu", "msv": "3122411020", "faculty": "CÔNG NGHỆ THÔNG TIN", "status": "not_achieved"},
+{"stt": 190, "name": "Bùi Thị Hải Lâm", "msv": "3122090011", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 191, "name": "Bùi Thiên Ân", "msv": "3123090002", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "not_achieved"},
+{"stt": 192, "name": "Lê Hoàng Phương Anh", "msv": "3121160003", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 193, "name": "Lê Xuân Diệu", "msv": "3122090004", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 194, "name": "Nguyễn Thanh Vi", "msv": "31221220044", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 195, "name": "Nguyễn Thị Khánh Linh", "msv": "3123090016", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "not_achieved"},
+{"stt": 196, "name": "Nguyễn Thị Thương", "msv": "3122390067", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 197, "name": "Nguyễn Trần Ánh Nhung", "msv": "3122390043", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 198, "name": "Phạm Ngọc Bảo Anh", "msv": "3123100002", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 199, "name": "Quang Đặng Như Ý", "msv": "3123090048", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "not_achieved"},
+{"stt": 200, "name": "Tạ Yến Chi", "msv": "3123090007", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 201, "name": "Trần Duy Tôn", "msv": "3121220037", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 202, "name": "Trần Lê Nhật Anh", "msv": "3122100001", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 203, "name": "Trần Quốc Nam", "msv": "3122090015", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "not_achieved"},
+{"stt": 204, "name": "Võ Nguyên Thảo", "msv": "3122090022", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 205, "name": "Võ Thị Kim Chi", "msv": "3123100004", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 206, "name": "Trần Quang Vĩ", "msv": "3121100035", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 207, "name": "Nguyễn Phạm Mẫn Nguyên", "msv": "3123090025", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 208, "name": "Lê Tường Hương Thuỷ", "msv": "3121170017", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 209, "name": "Đỗ Thị Hương Trâm", "msv": "3121100030", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 210, "name": "Huỳnh Tấn Khang", "msv": "3121090022", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 211, "name": "Vũ Ngọc Tiến", "msv": "3123090039", "faculty": "KHOA HỌC XÃ HỘI VÀ NGHỆ THUẬT", "status": "achieved"},
+{"stt": 212, "name": "Đặng Quốc Việt", "msv": "3124530108", "faculty": "GIÁO DỤC", "status": "achieved"},
+{"stt": 213, "name": "Nguyễn Ngọc Minh Tâm", "msv": "3122530098", "faculty": "GIÁO DỤC", "status": "not_achieved"},
+{"stt": 214, "name": "Nguyễn Thị Bảo Trâm", "msv": "3124460039", "faculty": "GIÁO DỤC", "status": "achieved"},
+{"stt": 215, "name": "Nguyễn Thị Thuỳ Trang", "msv": "3123530099", "faculty": "GIÁO DỤC", "status": "not_achieved"},
+{"stt": 216, "name": "Cao Hồng Thuý", "msv": "3123330380", "faculty": "QUẢN TRỊ KINH DOANH", "status": "achieved"},
+{"stt": 217, "name": "Đoàn Thị Huỳnh Ngân", "msv": "3124550080", "faculty": "QUẢN TRỊ KINH DOANH", "status": "not_achieved"},
+{"stt": 218, "name": "Hồ Thị Như Ý", "msv": "3123550193", "faculty": "QUẢN TRỊ KINH DOANH", "status": "achieved"},
+{"stt": 219, "name": "Nguyễn Hồng Xuyến", "msv": "3123550192", "faculty": "QUẢN TRỊ KINH DOANH", "status": "achieved"},
+{"stt": 220, "name": "Nguyễn Huyền Bảo Trâm", "msv": "3122330422", "faculty": "QUẢN TRỊ KINH DOANH", "status": "not_achieved"},
+{"stt": 221, "name": "Nguyễn Ngọc Thanh Thảo", "msv": "3122330360", "faculty": "QUẢN TRỊ KINH DOANH", "status": "achieved"},
+{"stt": 222, "name": "Nguyễn Nhật Thủy Tiên", "msv": "3124550143", "faculty": "QUẢN TRỊ KINH DOANH", "status": "not_achieved"},
+{"stt": 223, "name": "Nguyễn Thị Nhung", "msv": "3122330281", "faculty": "QUẢN TRỊ KINH DOANH", "status": "not_achieved"},
+{"stt": 224, "name": "Nguyễn Vũ Kha", "msv": "3123330144", "faculty": "QUẢN TRỊ KINH DOANH", "status": "achieved"},
+{"stt": 225, "name": "Sơn Thị Tuyết Duy", "msv": "3123550024", "faculty": "QUẢN TRỊ KINH DOANH", "status": "achieved"}        
+];
+        function renderTable(students) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
 
-        // 2. Fallback: Đọc từ file JSON (Sửa lại tên file cho đúng database của Đạt)
-        if (raw.length === 0) {
-            try {
-                const res = await fetch('students_database.json'); // Đã sửa tên file
-                const json = await res.json();
-                raw = json.students || [];
-            } catch (e) { console.log("Không tìm thấy file JSON dự phòng."); }
+            students.forEach((student, index) => {
+                const isAchieved = student.status === 'achieved';
+                const badgeClass = isAchieved 
+                    ? 'bg-green-100 text-green-700' 
+                    : 'bg-red-100 text-red-700';
+                const badgeText = isAchieved ? '✓ ĐẠT' : '✗ KHÔNG ĐẠT';
+                const rowClass = isAchieved ? 'hover:bg-green-50' : 'hover:bg-red-50';
+
+                const row = document.createElement('tr');
+                row.className = `border-b border-slate-200 ${rowClass} transition`;
+                row.innerHTML = `
+                    <td class="p-4 text-slate-900 font-medium text-center">${student.stt}</td>
+                    <td class="p-4 text-slate-900 font-medium">${student.name}</td>
+                    <td class="p-4 font-mono text-sm text-slate-600">${student.msv}</td>
+                    <td class="p-4 text-slate-700">${student.faculty}</td>
+                    <td class="p-4 text-center">
+                        <span class="px-3 py-1 rounded-full text-sm font-semibold ${badgeClass}">
+                            ${badgeText}
+                        </span>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            document.getElementById('resultCount').textContent = students.length;
         }
 
-        if (raw.length === 0) {
-            document.getElementById('tableBody').innerHTML =
-                '<tr><td colspan="5" class="p-8 text-center text-red-500 font-bold">⚠️ Không thể kết nối dữ liệu. Đạt hãy kiểm tra lại Server hoặc file JSON nhé!</td></tr>';
-            return;
+        function filterTable() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const filterValue = document.getElementById('filterSelect').value;
+
+            const filtered = studentsData.filter(student => {
+                const matchesSearch = student.name.toLowerCase().includes(searchText) || 
+                                    student.msv.includes(searchText);
+                const matchesFilter = !filterValue || student.status === filterValue;
+                return matchesSearch && matchesFilter;
+            });
+
+            renderTable(filtered);
         }
 
-        // 3. Xử lý dữ liệu
-        studentsData = raw.map((s, index) => ({
-            stt: index + 1,
-            name: s.name,
-            msv: s.msv || s.id, // Đề phòng trường hợp trong DB dùng trường 'id'
-            faculty: s.faculty || s.khoa, // Đề phòng trường hợp dùng trường 'khoa'
-            status: s.status
-        }));
+        document.getElementById('searchInput').addEventListener('input', filterTable);
+        document.getElementById('filterSelect').addEventListener('change', filterTable);
 
-        // 4. Cập nhật thống kê
-        const achieved = studentsData.filter(s => s.status === 'achieved').length;
-        const notAchieved = studentsData.length - achieved;
-        document.getElementById('totalCount').textContent = studentsData.length;
-        document.getElementById('achievedCount').textContent = achieved;
-        document.getElementById('notAchievedCount').textContent = notAchieved;
-
+        // Initial render
         renderTable(studentsData);
-    }
-
-    function renderTable(students) {
-        const tbody = document.getElementById('tableBody');
-        tbody.innerHTML = '';
-        if (students.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="p-8 text-center text-slate-400">Không tìm thấy sinh viên nào phù hợp.</td></tr>';
-            return;
-        }
-
-        students.forEach((student) => {
-            const isAchieved = student.status === 'achieved';
-            const badgeClass = isAchieved ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700';
-            const badgeText = isAchieved ? '✓ ĐẠT' : '✗ KHÔNG ĐẠT';
-            
-            const row = document.createElement('tr');
-            row.className = `border-b border-slate-200 hover:bg-slate-50 transition`;
-            row.innerHTML = `
-                <td class="p-4 text-slate-900 font-medium text-center">${student.stt}</td>
-                <td class="p-4 text-slate-900 font-semibold">${student.name}</td>
-                <td class="p-4 font-mono text-sm text-slate-600">${student.msv}</td>
-                <td class="p-4 text-slate-700">${student.faculty}</td>
-                <td class="p-4 text-center">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold ${badgeClass}">
-                        ${badgeText}
-                    </span>
-                </td>
-            `;
-            tbody.appendChild(row);
-        });
-        document.getElementById('resultCount').textContent = students.length;
-    }
-
-    function filterTable() {
-        const searchText = document.getElementById('searchInput').value.toLowerCase();
-        const filterValue = document.getElementById('filterSelect').value;
-        const filtered = studentsData.filter(s => {
-            const matchesSearch = s.name.toLowerCase().includes(searchText) || s.msv.includes(searchText);
-            const matchesFilter = !filterValue || s.status === filterValue;
-            return matchesSearch && matchesFilter;
-        });
-        renderTable(filtered);
-    }
-
-    document.getElementById('searchInput').addEventListener('input', filterTable);
-    document.getElementById('filterSelect').addEventListener('change', filterTable);
-
-    // Chạy tải dữ liệu khi trang web vừa mở
-    window.onload = loadStudents;
-</script>
+    </script>
 </body>
 </html>
