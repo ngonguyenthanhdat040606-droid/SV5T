@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 // CHUỖI KẾT NỐI MONGODB CỦA ĐẠT (Đã tối ưu)
 // Thay dòng cũ bằng dòng này để vượt qua lỗi DNS mạng công cộng
 // Chuỗi kết nối chuẩn giúp tránh lỗi ECONNREFUSED
-const MONGODB_URI = "mongodb://ngonguyenthanhdat040606_db_user:8OMaXPYyByrUMbb9@ac-pldqxjo-shard-00-00.uf8qglh.mongodb.net:27017,ac-pldqxjo-shard-00-01.uf8qglh.mongodb.net:27017,ac-pldqxjo-shard-00-02.uf8qglh.mongodb.net:27017/SGU_SV5T?ssl=true&replicaSet=atlas-w8kbvb-shard-0&authSource=admin&appName=Cluster0";
+const MONGODB_URI = process.env.MONGODB_URI || "MONGODB_URI=mongodb://ngonguyenthanhdat040606_db_user:8OMaXPYyByrUMbb9@ac-pldqxjo-shard-00-00.uf8qglh.mongodb.net:27017,ac-pldqxjo-shard-00-01.uf8qglh.mongodb.net:27017,ac-pldqxjo-shard-00-02.uf8qglh.mongodb.net:27017/SGU_SV5T?ssl=true&replicaSet=atlas-w8kbvb-shard-0&authSource=admin&appName=Cluster0";
 // KẾT NỐI DATABASE
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('✅ Đã kết nối thành công với MongoDB Atlas'))
