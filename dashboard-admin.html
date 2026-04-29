@@ -161,7 +161,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-slate-400 text-sm mb-2">Tổng sinh viên tham gia</p>
-                                <p class="text-3xl font-bold text-cyan-400">245</p>
+                                <p class="text-3xl font-bold text-cyan-400" id="statTotal">225</p>
                             </div>
                             <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center">
                                 <i data-lucide="users" class="text-cyan-400 w-6 h-6"></i>
@@ -172,8 +172,8 @@
                     <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500/50 transition">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-slate-400 text-sm mb-2">Đã cấp danh hiệu trường</p>
-                                <p class="text-3xl font-bold text-green-400">38</p>
+                                <p class="text-slate-400 text-sm mb-2">Đã đạt danh hiệu</p>
+                                <p class="text-3xl font-bold text-green-400" id="statAchieved">192</p>
                             </div>
                             <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
                                 <i data-lucide="award" class="text-green-400 w-6 h-6"></i>
@@ -540,37 +540,13 @@
                                 <th class="px-6 py-4 text-center text-sm font-semibold">Hành động</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-700">
-                            <tr class="table-row">
-                                <td class="px-6 py-4">Nguyễn Văn A</td>
-                                <td class="px-6 py-4 font-mono text-sm">3120410001</td>
-                                <td class="px-6 py-4 text-sm">FIT61</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-24 h-2 bg-slate-700 rounded-full overflow-hidden">
-                                            <div class="h-full bg-cyan-500" style="width: 40%"></div>
-                                        </div>
-                                        <span class="text-xs font-semibold">40%</span>
+                        <tbody class="divide-y divide-slate-700" id="managementTableBody">
+                            <tr>
+                                <td colspan="5" class="px-6 py-10 text-center text-slate-400">
+                                    <div class="flex flex-col items-center gap-2">
+                                        <i data-lucide="loader" class="w-6 h-6 animate-spin text-cyan-400"></i>
+                                        <span>Đang tải danh sách sinh viên...</span>
                                     </div>
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="px-3 py-1 rounded text-xs font-semibold bg-slate-700 hover:bg-slate-600 transition">Chi tiết</button>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="px-6 py-4">Trần Thị B</td>
-                                <td class="px-6 py-4 font-mono text-sm">3120410002</td>
-                                <td class="px-6 py-4 text-sm">BIS61</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-24 h-2 bg-slate-700 rounded-full overflow-hidden">
-                                            <div class="h-full bg-cyan-500" style="width: 60%"></div>
-                                        </div>
-                                        <span class="text-xs font-semibold">60%</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="px-3 py-1 rounded text-xs font-semibold bg-slate-700 hover:bg-slate-600 transition">Chi tiết</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -721,9 +697,11 @@
                 btn.classList.remove('!bg-cyan-600', '!text-white');
                 btn.classList.add('!text-slate-400');
             });
-            
             event.target.closest('button').classList.add('!bg-cyan-600', '!text-white');
             event.target.closest('button').classList.remove('!text-slate-400');
+
+            // Load dữ liệu từ API khi cần
+            if (pageName === 'management') loadManagementStudents();
         }
 
         function openReviewModal(name, code, criteria) {
@@ -764,6 +742,65 @@
             localStorage.clear();
             window.location.href = 'index.html';
         }
+
+        // ===== LOAD DỮ LIỆU TỪ API =====
+        async function loadStatistics() {
+            try {
+                const res = await fetch('/api/admin/statistics');
+                const data = await res.json();
+                if (data.success) {
+                    document.getElementById('statTotal').textContent = data.data.totalStudents;
+                    document.getElementById('statAchieved').textContent = data.data.achieved;
+                }
+            } catch (err) {
+                console.warn('Không thể tải thống kê từ server:', err.message);
+            }
+        }
+
+        async function loadManagementStudents() {
+            const tbody = document.getElementById('managementTableBody');
+            tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-10 text-center text-slate-400">
+                <div class="flex flex-col items-center gap-2">
+                    <i data-lucide="loader" class="w-6 h-6 animate-spin text-cyan-400"></i>
+                    <span>Đang tải...</span>
+                </div></td></tr>`;
+            lucide.createIcons();
+            try {
+                const res = await fetch('/api/admin/students');
+                const data = await res.json();
+                if (data.success && data.data.length > 0) {
+                    tbody.innerHTML = data.data.map((sv, i) => `
+                        <tr class="table-row">
+                            <td class="px-6 py-3 text-sm">${sv.name || '-'}</td>
+                            <td class="px-6 py-3 font-mono text-xs text-slate-300">${sv.msv || '-'}</td>
+                            <td class="px-6 py-3 text-xs text-slate-400">${sv.faculty || '-'}</td>
+                            <td class="px-6 py-3">
+                                <span class="px-2 py-1 rounded-full text-xs font-semibold ${
+                                    sv.status === 'achieved'
+                                    ? 'bg-green-500/20 text-green-400'
+                                    : 'bg-red-500/20 text-red-400'
+                                }">${sv.status === 'achieved' ? '✓ Đạt' : '✗ Không đạt'}</span>
+                            </td>
+                            <td class="px-6 py-3 text-center">
+                                <button class="px-3 py-1 rounded text-xs font-semibold bg-slate-700 hover:bg-slate-600 transition">Chi tiết</button>
+                            </td>
+                        </tr>`).join('');
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-10 text-center text-slate-400">
+                        Chưa có dữ liệu. Vui lòng <a href="/api/admin/import-data" target="_blank" class="text-cyan-400 underline">nạp dữ liệu</a> trước.
+                    </td></tr>`;
+                }
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-red-400">
+                    ❌ Không thể kết nối server. Hãy khởi động server bằng <code class="bg-slate-700 px-2 py-1 rounded">npm start</code>
+                </td></tr>`;
+            }
+        }
+
+        // Tải thống kê khi trang load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadStatistics();
+        });
     </script>
 </body>
 </html>

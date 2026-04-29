@@ -147,11 +147,7 @@
                         Tài khoản Ban Hội
                     </label>
                     <select id="admin-unit" class="input-field w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:border-cyan-500 focus:outline-none">
-                        <option value="">-- Chọn đơn vị --</option>
                         <option value="hoi_tong">Hội Sinh viên Trường</option>
-                        <option value="lien_chi_hoi">Liên Chi Hội</option>
-                        <option value="chi_hoi_khoa">Chi Hội Khoa</option>
-                        <option value="chu_tich_lop">Chủ tịch Lớp</option>
                     </select>
                 </div>
 
@@ -245,45 +241,75 @@
             field.type = field.type === 'password' ? 'text' : 'password';
         }
 
-        function loginStudent() {
-            const email = document.getElementById('student-email').value;
+        async function loginStudent() {
+            const email = document.getElementById('student-email').value.trim();
             const password = document.getElementById('student-password').value;
-
             if (!email || !password) {
-                alert('Vui lòng nhập email/MSV và mật khẩu');
+                alert('Vui lòng nhập MSV và mật khẩu');
                 return;
             }
-
-            // Demo: Simple validation
-            if (email === '3120410001' && password === '123456') {
-                localStorage.setItem('userRole', 'student');
-                localStorage.setItem('userId', email);
-                localStorage.setItem('userName', 'Nguyễn Văn A');
-                localStorage.setItem('userEmail', 'a.nguyen@sgu.edu.vn');
-                window.location.href = 'dashboard-student.html';
-            } else {
-                alert('Sai email/MSV hoặc mật khẩu');
+            try {
+                const res = await fetch('/api/auth/student-login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    localStorage.setItem('userRole', 'student');
+                    localStorage.setItem('userId', data.user.id);
+                    localStorage.setItem('userName', data.user.name);
+                    localStorage.setItem('userFaculty', data.user.faculty);
+                    window.location.href = 'dashboard-student.html';
+                } else {
+                    alert(data.message || 'Sai MSV hoặc mật khẩu');
+                }
+            } catch (err) {
+                // Fallback demo khi server chưa chạy
+                if (email === '3120410001' && password === '123456') {
+                    localStorage.setItem('userRole', 'student');
+                    localStorage.setItem('userId', email);
+                    localStorage.setItem('userName', 'Nguyễn Văn A');
+                    window.location.href = 'dashboard-student.html';
+                } else {
+                    alert('⚠️ Không thể kết nối server. Dùng MSV: 3120410001 / Pass: 123456 để demo.');
+                }
             }
         }
 
-        function loginAdmin() {
+        async function loginAdmin() {
             const unit = document.getElementById('admin-unit').value;
-            const username = document.getElementById('admin-username').value;
+            const username = document.getElementById('admin-username').value.trim();
             const password = document.getElementById('admin-password').value;
-
             if (!unit || !username || !password) {
                 alert('Vui lòng nhập đầy đủ thông tin');
                 return;
             }
-
-            // Demo: Simple validation
-            if (username === 'admin' && password === '123456') {
-                localStorage.setItem('userRole', 'admin');
-                localStorage.setItem('userId', username);
-                localStorage.setItem('adminUnit', unit);
-                window.location.href = 'dashboard-admin.html';
-            } else {
-                alert('Sai tên đăng nhập hoặc mật khẩu');
+            try {
+                const res = await fetch('/api/auth/admin-login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    localStorage.setItem('userRole', 'admin');
+                    localStorage.setItem('userId', username);
+                    localStorage.setItem('adminUnit', unit);
+                    window.location.href = 'dashboard-admin.html';
+                } else {
+                    alert(data.message || 'Sai tên đăng nhập hoặc mật khẩu');
+                }
+            } catch (err) {
+                // Fallback demo khi server chưa chạy
+                if (username === 'admin' && password === '123456') {
+                    localStorage.setItem('userRole', 'admin');
+                    localStorage.setItem('userId', username);
+                    localStorage.setItem('adminUnit', unit);
+                    window.location.href = 'dashboard-admin.html';
+                } else {
+                    alert('⚠️ Không thể kết nối server. Dùng admin / 123456 để demo.');
+                }
             }
         }
 

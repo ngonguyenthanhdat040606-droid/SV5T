@@ -77,16 +77,40 @@ app.post('/api/auth/admin-login', (req, res) => {
     if (username === 'admin' && password === '123456') {
         res.json({ success: true, user: { id: 'admin', role: 'admin' }, token: 'mock_token_admin' });
     } else {
-        res.status(401).json({ success: false, message: 'Sai tài khoản' });
+        res.status(401).json({ success: false, message: 'Sai tài khoản hoặc mật khẩu' });
     }
 });
 
-// 4. Thống kê nhanh cho Dashboard
+// 4. Đăng nhập Sinh viên (tìm theo MSV trong MongoDB)
+app.post('/api/auth/student-login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const student = await Student.findOne({ msv: email });
+        if (!student) {
+            return res.status(401).json({ success: false, message: 'Không tìm thấy sinh viên với MSV này' });
+        }
+        // Mật khẩu mặc định: 123456 hoặc chính MSV
+        const validPass = password === '123456' || password === student.msv;
+        if (!validPass) {
+            return res.status(401).json({ success: false, message: 'Sai mật khẩu' });
+        }
+        res.json({
+            success: true,
+            user: { id: student.msv, name: student.name, faculty: student.faculty, role: 'student' },
+            token: 'mock_token_student'
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+});
+
+// 5. Thống kê nhanh cho Dashboard
 app.get('/api/admin/statistics', async (req, res) => {
     try {
         const total = await Student.countDocuments();
         const achieved = await Student.countDocuments({ status: 'achieved' });
-        res.json({ success: true, data: { totalStudents: total, approvedDocuments: achieved } });
+        const notAchieved = await Student.countDocuments({ status: 'not_achieved' });
+        res.json({ success: true, data: { totalStudents: total, achieved, notAchieved, pending: 0 } });
     } catch (err) {
         res.status(500).json({ success: false, message: err.message });
     }
