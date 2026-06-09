@@ -99,6 +99,219 @@
         .status-error {
             @apply bg-red-500/20 text-red-400;
         }
+
+        /* --- CHATBOT UI STYLES --- */
+        #chatbot-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 50;
+        }
+        
+        #chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        #chatbot-button:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.6);
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #06B6D4;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0; }
+        }
+
+        #chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            height: 550px;
+            background-color: #1E293B;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform-origin: bottom right;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            pointer-events: none;
+        }
+        
+        #chatbot-window.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: all;
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, #0F172A, #1E293B);
+            border-bottom: 1px solid #334155;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .chat-body::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .chat-body::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 2px;
+        }
+        
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            animation: slideInUp 0.3s ease-out;
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message.bot {
+            background-color: #334155;
+            color: #E2E8F0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .chat-input-area {
+            padding: 16px;
+            border-top: 1px solid #334155;
+            background-color: #1E293B;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .chat-input {
+            flex: 1;
+            background-color: #0F172A;
+            border: 1px solid #334155;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .chat-input:focus {
+            border-color: #06B6D4;
+        }
+        
+        .chat-send-btn {
+            background-color: #06B6D4;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .chat-send-btn:hover {
+            background-color: #0891B2;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            background-color: #334155;
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+            width: fit-content;
+        }
+        
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            background-color: #94A3B8;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        /* --- END CHATBOT UI --- */
+
+        /* --- OCR SCANNER AI --- */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #06B6D4;
+            box-shadow: 0 0 10px #06B6D4, 0 0 20px #06B6D4;
+            animation: scan 2s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
@@ -505,6 +718,52 @@
         </div>
     </div>
 
+    <!-- FLOATING CHATBOT WIDGET -->
+    <div id="chatbot-widget">
+        <!-- Chat Button -->
+        <div id="chatbot-button" onclick="toggleChat()">
+            <div class="pulse-ring"></div>
+            <i data-lucide="bot" class="text-white w-8 h-8"></i>
+        </div>
+        
+        <!-- Chat Window -->
+        <div id="chatbot-window">
+            <div class="chat-header">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center">
+                        <i data-lucide="sparkles" class="text-cyan-400 w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white leading-tight">Smartbot 5T</h4>
+                        <p class="text-xs text-cyan-400">Trực tuyến 24/7</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white transition">
+                    <i data-lucide="minus" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="chat-body" id="chat-messages">
+                <!-- Messages will be injected here -->
+            </div>
+            
+            <!-- Typing Indicator (Hidden by default) -->
+            <div class="typing-indicator" id="typing-indicator">
+                <span></span><span></span><span></span>
+            </div>
+            
+            <div class="chat-input-area">
+                <button class="text-slate-400 hover:text-cyan-400 transition" title="Gửi tài liệu">
+                    <i data-lucide="paperclip" class="w-5 h-5"></i>
+                </button>
+                <input type="text" id="chat-input" class="chat-input" placeholder="Hỏi AI về tiêu chí 5 tốt..." autocomplete="off">
+                <button onclick="sendChatMessage()" class="chat-send-btn">
+                    <i data-lucide="send" class="w-4 h-4 ml-1 mt-0.5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
 
@@ -830,22 +1089,54 @@
                 const fileSize = (file.size / 1024 / 1024).toFixed(2);
                 
                 const fileEl = document.createElement('div');
-                fileEl.className = 'bg-slate-700/50 rounded-lg p-3 flex items-center gap-3';
+                fileEl.className = 'bg-slate-700/50 rounded-lg p-3 relative overflow-hidden';
                 fileEl.innerHTML = `
-                    <div class="w-8 h-8 bg-cyan-500/20 rounded flex items-center justify-center">
-                        <i data-lucide="file-check" class="text-cyan-400 w-4 h-4"></i>
+                    <div class="flex items-center gap-3 relative z-10">
+                        <div class="w-8 h-8 bg-cyan-500/20 rounded flex items-center justify-center">
+                            <i data-lucide="file-check" class="text-cyan-400 w-4 h-4"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">${file.name}</p>
+                            <p class="text-xs text-slate-400" id="scan-status">Đang phân tích AI...</p>
+                        </div>
+                        <div id="scan-spinner" class="w-5 h-5 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
                     </div>
-                    <div class="flex-1">
-                        <p class="font-semibold text-sm">${file.name}</p>
-                        <p class="text-xs text-slate-400">${fileSize} MB</p>
-                    </div>
-                    <button type="button" onclick="clearFile()" class="text-slate-400 hover:text-red-400 transition">
-                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                    </button>
+                    <div class="scan-line"></div>
                 `;
                 preview.appendChild(fileEl);
+                lucide.createIcons();
+
+                // Mock VNPT SmartReader Processing
+                const titleInput = document.getElementById('modalTitle');
+                const descInput = document.getElementById('modalDescription');
+                
+                titleInput.value = 'Đang trích xuất...';
+                descInput.value = 'Đang trích xuất...';
+
+                setTimeout(() => {
+                    const status = document.getElementById('scan-status');
+                    const spinner = document.getElementById('scan-spinner');
+                    
+                    status.innerHTML = `<span class="text-green-400">AI đã quét thành công (Độ tin cậy: 98%)</span> • ${fileSize} MB`;
+                    spinner.outerHTML = `<div class="w-5 h-5 bg-green-500/20 rounded flex items-center justify-center"><i data-lucide="check" class="text-green-400 w-3 h-3"></i></div>`;
+                    
+                    document.querySelector('.scan-line').style.display = 'none';
+
+                    // Auto-fill based on criteria
+                    const currentCriteria = document.getElementById('modalCriteria').value;
+                    if (currentCriteria.includes('Hội nhập')) {
+                        titleInput.value = 'Chứng chỉ TOEIC 650';
+                        descInput.value = 'Họ tên khớp 100%. Điểm số: 650/990. Ngày thi: 15/03/2025. Đơn vị cấp: IIG Việt Nam.';
+                    } else if (currentCriteria.includes('Tình nguyện')) {
+                        titleInput.value = 'Giấy chứng nhận Mùa hè xanh 2025';
+                        descInput.value = 'Hoạt động: 15 ngày tình nguyện tại Bến Tre. Đơn vị cấp: HSV Trường Đại học Sài Gòn.';
+                    } else {
+                        titleInput.value = file.name.split('.')[0] + ' (Trích xuất bởi AI)';
+                        descInput.value = 'Đã nhận diện các trường thông tin cơ bản: Họ tên, Ngày tháng, Đơn vị cấp...';
+                    }
+                    lucide.createIcons();
+                }, 2000);
             }
-            lucide.createIcons();
         }
 
         function clearFile() {
@@ -872,6 +1163,81 @@
             localStorage.clear();
             window.location.href = 'index.html';
         }
+
+        // --- CHATBOT LOGIC ---
+        let chatActive = false;
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        function toggleChat() {
+            chatActive = !chatActive;
+            if (chatActive) {
+                chatbotWindow.classList.add('active');
+                if (chatMessages.children.length === 0) {
+                    setTimeout(() => {
+                        appendMessage('bot', 'Xin chào! Mình là Trợ lý ảo SV5T (Powered by VNPT Smartbot). Bạn cần mình hỗ trợ thông tin gì về quy chế, điểm số hay cách nộp minh chứng?');
+                    }, 300);
+                }
+            } else {
+                chatbotWindow.classList.remove('active');
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const msgEl = document.createElement('div');
+            msgEl.className = `message ${sender}`;
+            msgEl.innerHTML = text; // allow basic HTML like <br>
+            chatMessages.appendChild(msgEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendChatMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            appendMessage('user', text);
+            chatInput.value = '';
+            
+            // Show typing indicator
+            typingIndicator.style.display = 'flex';
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Simulate AI delay and reasoning
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                generateBotResponse(text);
+            }, 1200 + Math.random() * 800);
+        }
+
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
+
+        // Mock VNPT Smartbot Responses using simple intent matching
+        function generateBotResponse(userText) {
+            const text = userText.toLowerCase();
+            let response = '';
+
+            if (text.includes('thể lực') || text.includes('thể thao') || text.includes('chạy bộ')) {
+                response = `Bạn đang thiếu tiêu chí <b>Thể lực tốt</b>. Hệ thống ghi nhận bạn chưa có đủ 5 ngày hoạt động thể thao.<br><br>💡 <b>Gợi ý AI:</b> Sắp tới ngày 15/05 có giải chạy SGU Run 2026. Bạn có muốn mình đăng ký giúp không?`;
+            } else if (text.includes('tiếng anh') || text.includes('hội nhập') || text.includes('toeic')) {
+                response = `Tiêu chí <b>Hội nhập tốt</b> yêu cầu Chứng chỉ Tiếng Anh tương đương B1 (TOEIC 450, IELTS 4.5). <br><br>Nếu bạn đã có chứng chỉ, hãy vào mục "Hồ sơ minh chứng" tải lên. Trợ lý AI (SmartReader) sẽ tự động quét và cập nhật tiến độ cho bạn!`;
+            } else if (text.includes('tình nguyện') || text.includes('mùa hè xanh')) {
+                response = `Tuyệt vời! Bạn đã hoàn thành 100% tiêu chí <b>Tình nguyện tốt</b> nhờ tham gia Mùa hè xanh 2025. Hãy tiếp tục phát huy nhé!`;
+            } else if (text.includes('cảm ơn') || text.includes('thanks') || text.includes('tuyệt')) {
+                response = `Không có gì! Mình luôn ở đây 24/7 để hỗ trợ bạn trở thành Sinh viên 5 tốt. Chúc bạn một ngày học tập hiệu quả! ✨`;
+            } else {
+                response = `Mình hiểu bạn đang hỏi về <i>"${userText}"</i>. Hiện tại mình đang được đào tạo thêm về trường hợp này. <br><br>Bạn có thể hỏi cụ thể hơn về 5 tiêu chí: Đạo đức, Học tập, Thể lực, Tình nguyện, Hội nhập được không?`;
+            }
+            
+            appendMessage('bot', response);
+        }
+        // --- END CHATBOT LOGIC ---
 
         // Initialize
         initializeUser();
